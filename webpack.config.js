@@ -14,7 +14,7 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js']
   },
   devServer: {
     host: '0.0.0.0',
