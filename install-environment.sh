@@ -8,3 +8,6 @@ mkdir -p /vagrant_node_modules
 chown vagrant:vagrant /vagrant_node_modules
 mkdir -p /vagrant/node_modules
 mount --bind /vagrant_node_modules /vagrant/node_modules
+
+# npm
+npm install -g mocha
