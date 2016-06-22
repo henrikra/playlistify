@@ -5,6 +5,6 @@ import App from '../src/components/App';
 
 describe("App", () => {
   it("renders", () => {
-    expect(shallow(<App />).length).toEqual(1);
+    expect(shallow(<App />)).toExist();
   });
 });
