@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        React simple starter
+        <h1>Playlistify</h1>
         <SearchBar />
       </div>
     );
