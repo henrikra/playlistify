@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 
-export default class SearchBar extends Component {
+export class SearchBar extends Component {
   render() {
+    const {
+      fields: { searchTerm },
+      handleSubmit
+    } = this.props;
+
     return (
-      <div>
-        <input type="text" />
+      <form onSubmit={handleSubmit}>
+        <input type="text" {...searchTerm} />
         <input type="submit" value="Search" />
-      </div>
+      </form>
     );
   }
 }
+
+export default reduxForm({
+  form: 'Search',
+  fields: ['searchTerm']
+})(SearchBar);
