@@ -19,5 +19,6 @@ module.exports = {
     watchOptions: {
       poll: true
     }
-  }
+  },
+  devtool: "#inline-source-map"
 };
