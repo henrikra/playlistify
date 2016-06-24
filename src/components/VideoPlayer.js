@@ -12,6 +12,8 @@ export class VideoPlayer extends Component {
 
     this.onReady = this.onReady.bind(this);
     this.onEnd = this.onEnd.bind(this);
+    this.onPlay = this.onPlay.bind(this);
+    this.onPause = this.onPause.bind(this);
     this.getNextVideoId = this.getNextVideoId.bind(this);
     this.state = {player: null};
   }
@@ -55,6 +57,14 @@ export class VideoPlayer extends Component {
     this.props.playVideo(this.getNextVideoId());
   }
 
+  onPause() {
+    this.props.pausePlayer();
+  }
+
+  onPlay() {
+    this.props.playVideo(this.props.videoPlayer.videoId);
+  }
+
   render() {
     const opts = {
       height: '390',
@@ -70,6 +80,8 @@ export class VideoPlayer extends Component {
         opts={opts}
         onReady={this.onReady}
         onEnd={this.onEnd}
+        onPlay={this.onPlay}
+        onPause={this.onPause}
       />
     );
   }
