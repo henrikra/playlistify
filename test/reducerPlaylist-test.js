@@ -47,5 +47,9 @@ describe('Playlist reducer', () => {
 
       expect(reducer(initialState, action)).to.eql(expectedState);
     });
+
+    it('return playlist as it was when playlist is empty', () => {
+      expect(reducer(undefined, action)).to.eql([]);
+    });
   });
 });
