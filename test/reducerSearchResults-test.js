@@ -10,7 +10,7 @@ describe('Search results reducer', () => {
   it('handles SEARCH_VIDEOS', () => {
     const action = {
       type: types.SEARCH_VIDEOS,
-      payload: {data: {items: [1, 2, 3]}}
+      videos: [1, 2, 3]
     };
 
     expect(reducer(undefined, action)).to.eql([1, 2, 3]);
