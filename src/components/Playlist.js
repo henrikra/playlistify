@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import PlaylistItem from './PlaylistItem';
+
 export class Playlist extends Component {
   render() {
     const playlistItems = this.props.playlist.map((playlistItem, index) => {
-      return <li key={index}>{playlistItem.title}</li>;
+      return <PlaylistItem key={index} playlistItem={playlistItem} />;
     });
 
     return (
