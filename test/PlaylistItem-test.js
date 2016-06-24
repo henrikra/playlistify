@@ -8,7 +8,8 @@ describe('PlaylistItem', () => {
   const minimumProps = {
     playlistItem: {
       snippet: {title: 'Video title 1'}
-    }
+    },
+    videoPlayer: {}
   };
 
   it('contains video title', () => {
