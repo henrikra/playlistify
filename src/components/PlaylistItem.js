@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeVideoFromPlaylist, playVideo } from '../actions';
+import { removeVideoFromPlaylist, playVideo, pausePlayer } from '../actions';
 
 export class PlaylistItem extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this); //
     this.handlePlayClick = this.handlePlayClick.bind(this);
+    this.handlePauseClick = this.handlePauseClick.bind(this);
     this.isCurrentlyPlaying = this.isCurrentlyPlaying.bind(this);
   }
 
@@ -19,6 +20,10 @@ export class PlaylistItem extends Component {
 
   handlePlayClick() {
     this.props.playVideo(this.props.playlistItem.id.videoId);
+  }
+
+  handlePauseClick() {
+    this.props.pausePlayer();
   }
 
   isCurrentlyPlaying() {
@@ -32,7 +37,7 @@ export class PlaylistItem extends Component {
       <li>
         {playlistItem.snippet.title}
         <button onClick={this.handleClick}>-</button>
-        <button onClick={this.handlePlayClick}>
+        <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
           {this.isCurrentlyPlaying() ? 'Pause' : 'Play'}
         </button>
       </li>
@@ -45,7 +50,11 @@ function mapStateToProps({ videoPlayer }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({removeVideoFromPlaylist, playVideo}, dispatch);
+  return bindActionCreators({
+    removeVideoFromPlaylist,
+    playVideo,
+    pausePlayer
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistItem);
