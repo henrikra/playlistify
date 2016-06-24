@@ -6,7 +6,7 @@ export default class PlaylistItem extends Component {
 
     return (
       <li>
-        {playlistItem.title}
+        {playlistItem.snippet.title}
       </li>
     );
   }
