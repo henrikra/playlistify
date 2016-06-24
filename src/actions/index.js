@@ -12,12 +12,19 @@ export function fetchVideos(searchTerm) {
   return dispatch => {
     return searchYouTube(searchTerm)
       .then(({ data }) => dispatch(fetchVideosSuccess(data.items)));
-  }
+  };
 }
 
 export function addVideoToPlaylist(video) {
   return {
     type: types.ADD_TO_PLAYLIST,
     video
-  }
+  };
+}
+
+export function removeVideoFromPlaylist(videoId) {
+  return {
+    type: types.REMOVE_FROM_PLAYLIST,
+    videoId
+  };
 }
