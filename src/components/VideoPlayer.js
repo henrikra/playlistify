@@ -10,6 +10,16 @@ export class VideoPlayer extends Component {
     this.state = {player: null};
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.player) {
+      if (nextProps.videoPlayer.isPlaying) {
+        nextState.player.playVideo();
+      } else {
+        nextState.player.pauseVideo();
+      }
+    }
+  }
+
   onReady(e) {
     this.setState({player: e.target});
   }
