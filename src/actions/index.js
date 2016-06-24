@@ -1,8 +1,11 @@
 import types from '../constants/ActionTypes';
+import { searchYouTube } from '../utils/youtube';
 
-export function searchVideos(searchTerm) {
+export function fetchVideos(searchTerm) {
+  const request = searchYouTube(searchTerm);
+  
   return {
     type: types.SEARCH_VIDEOS,
-    searchTerm
+    payload: request
   };
 }

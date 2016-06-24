@@ -12,13 +12,5 @@ export function searchYouTube(searchTerm, callback) {
     q: searchTerm
   };
 
-  axios.get(YOUTUBE_DATA_API_URL, { params })
-    .then(response => {
-      if (callback) {
-        callback(response.data.items);
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
+  return axios.get(YOUTUBE_DATA_API_URL, { params });
 }

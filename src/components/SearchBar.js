@@ -1,23 +1,42 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { fetchVideos } from '../actions';
 
 export class SearchBar extends Component {
-  render() {
-    const {
-      fields: { searchTerm },
-      handleSubmit
-    } = this.props;
+  constructor(props) {
+    super(props);
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
 
+    this.state = {searchTerm: ''};
+  }
+
+  onInputChange(e) {
+    this.setState({searchTerm: e.target.value});
+  }
+
+  onFormSubmit(e) {
+    e.preventDefault();
+    this.props.fetchVideos(this.state.searchTerm);
+  }
+
+  render() {
     return (
-      <form onSubmit={handleSubmit}>
-        <input type="text" {...searchTerm} />
+      <form onSubmit={this.onFormSubmit}>
+        <input
+          type="text"
+          value={this.state.searchTerm}
+          onChange={this.onInputChange} />
         <input type="submit" value="Search" />
       </form>
     );
   }
 }
 
-export default reduxForm({
-  form: 'Search',
-  fields: ['searchTerm']
-})(SearchBar);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchVideos }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);

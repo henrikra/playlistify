@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
+
+import searchResultsReducer from './searchResults';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state,
-  form: formReducer
+  searchResults: searchResultsReducer
 });
 
 export default rootReducer;
