@@ -10,6 +10,7 @@ export class PlaylistItem extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handlePlayClick = this.handlePlayClick.bind(this);
+    this.isCurrentlyPlaying = this.isCurrentlyPlaying.bind(this);
   }
 
   handleClick() {
@@ -20,21 +21,31 @@ export class PlaylistItem extends Component {
     this.props.playVideo(this.props.playlistItem.id.videoId);
   }
 
+  isCurrentlyPlaying() {
+    const { playlistItem, videoPlayer } = this.props;
+    return videoPlayer.isPlaying && videoPlayer.videoId === playlistItem.id.videoId;
+  }
+
   render() {
     const { playlistItem } = this.props;
-
     return (
       <li>
         {playlistItem.snippet.title}
         <button onClick={this.handleClick}>-</button>
-        <button onClick={this.handlePlayClick}>&gt;</button>
+        <button onClick={this.handlePlayClick}>
+          {this.isCurrentlyPlaying() ? 'Pause' : 'Play'}
+        </button>
       </li>
     );
   }
+}
+
+function mapStateToProps({ videoPlayer }) {
+  return {videoPlayer};
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({removeVideoFromPlaylist, playVideo}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(PlaylistItem);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistItem);
