@@ -20,6 +20,7 @@ export class SearchBar extends Component {
   onFormSubmit(e) {
     e.preventDefault();
     this.props.fetchVideos(this.state.searchTerm);
+    this.setState({searchTerm: ''});
   }
 
   render() {
