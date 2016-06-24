@@ -8,7 +8,7 @@ describe('Playlist reducer', () => {
   describe('ADD_TO_PLAYLIST', () => {
     const action = {
       type: types.ADD_TO_PLAYLIST,
-      video: {title: 'New video'}
+      video: {id: {videoId: 'superId1'}}
     };
 
     it('returns the initial state', () => {
@@ -16,14 +16,14 @@ describe('Playlist reducer', () => {
     });
 
     it('adds video to empty playlist', () => {
-      expect(reducer(undefined, action)).to.eql([{title: 'New video'}]);
+      expect(reducer(undefined, action)).to.eql([{id: {videoId: 'superId1'}}]);
     });
 
     it('adds video to already initialized playlist', () => {
-      const initialState = [{title: 'This video is already in playlist'}];
+      const initialState = [{id: {videoId: 'idWhichWasAlreadyInPlaylist'}}];
       expect(reducer(initialState, action)).to.eql([
-        {title: 'This video is already in playlist'},
-        {title: 'New video'}
+        {id: {videoId: 'idWhichWasAlreadyInPlaylist'}},
+        {id: {videoId: 'superId1'}}
       ]);
     });
   });
