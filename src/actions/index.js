@@ -28,3 +28,10 @@ export function removeVideoFromPlaylist(videoId) {
     videoId
   };
 }
+
+export function playVideo(videoId) {
+  return {
+    type: types.PLAY_VIDEO,
+    videoId
+  };
+}
