@@ -14,3 +14,10 @@ export function fetchVideos(searchTerm) {
       .then(({ data }) => dispatch(fetchVideosSuccess(data.items)));
   }
 }
+
+export function addVideoToPlaylist(video) {
+  return {
+    type: types.ADD_TO_PLAYLIST,
+    video
+  }
+}
