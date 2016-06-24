@@ -7,7 +7,7 @@ export class SearchResults extends Component {
   render() {
     const videos = this.props.searchResults.map(searchResult => {
       return (
-        <SearchResult key={searchResult.etag} searchResult={searchResult.snippet} />
+        <SearchResult key={searchResult.etag} searchResult={searchResult} />
       );
     });
 

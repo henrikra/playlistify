@@ -21,7 +21,7 @@ export class SearchResult extends Component {
 
     return (
       <li>
-        {searchResult.title}
+        {searchResult.snippet.title}
         <button onClick={this.handleClick}>+</button>
       </li>
     );
