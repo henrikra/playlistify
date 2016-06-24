@@ -3,19 +3,27 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import { SearchResults } from '../src/components/SearchResults';
-import { searchYouTube } from '../src/utils/youtube';
 
 describe('SearchResults', () => {
   const minimumProps = {
-    searchResults: [
-      {etag: '', snippet: {title: ''}},
-      {etag: '', snippet: {title: ''}},
-      {etag: '', snippet: {title: ''}}
-    ]
+    searchResults: []
   };
-  const wrapper = shallow(<SearchResults {...minimumProps} />);
 
-  it('renders right amount of list items', () => {
+  it('renders three list items', () => {
+    const props = {
+      searchResults: [
+        {etag: '', snippet: {title: ''}},
+        {etag: '', snippet: {title: ''}},
+        {etag: '', snippet: {title: ''}}
+      ]
+    };
+
+    const wrapper = shallow(<SearchResults {...props} />);
     expect(wrapper.find('li')).to.have.length(3);
+  });
+
+  it('does not render list items with empty searchResults', () => {
+    const wrapper = shallow(<SearchResults {...minimumProps} />);
+    expect(wrapper.find('li')).to.have.length(0);
   });
 });
