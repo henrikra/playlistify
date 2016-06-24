@@ -31,7 +31,7 @@ export function removeVideoFromPlaylist(videoId) {
 
 export function playVideo(videoId) {
   return {
-    type: types.PLAY_VIDEO,
+    type: types.ADD_VIDEO_TO_PLAYER,
     videoId
   };
 }

@@ -42,10 +42,10 @@ describe('Actions', () => {
     expect(actions.removeVideoFromPlaylist(videoId)).to.eql(expectedAction);
   });
 
-  it('creates PLAY_VIDEO action', () => {
+  it('creates ADD_VIDEO_TO_PLAYER action', () => {
     const videoId = 'superVideoId123';
     const expectedAction = {
-      type: types.PLAY_VIDEO,
+      type: types.ADD_VIDEO_TO_PLAYER,
       videoId
     };
 
