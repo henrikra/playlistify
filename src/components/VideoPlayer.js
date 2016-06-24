@@ -31,6 +31,7 @@ export class VideoPlayer extends Component {
 
   onEnd() {
     this.props.pausePlayer();
+    this.state.player.stopVideo();
   }
 
   render() {
