@@ -6,7 +6,8 @@ export default function playlist(state = [], action) {
       return [...state, action.video];
       break;
     case types.REMOVE_FROM_PLAYLIST:
-      return state.filter(video => video.id.videoId !== action.videoId);
+      const filterById = video => video.id.videoId !== action.videoId;
+      return state.filter(filterById);
       break;
     default:
       return state;
