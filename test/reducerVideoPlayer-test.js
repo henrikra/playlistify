@@ -18,4 +18,10 @@ describe('Video player reducer', () => {
       isPlaying: true, videoId: 'myVideoId'
     });
   });
+
+  it('handles PAUSE_PLAYER', () => {
+    const action = {type: types.PAUSE_PLAYER};
+
+    expect(reducer(undefined, action)).to.eql({isPlaying: false});
+  });
 });
