@@ -26,6 +26,11 @@ describe('Playlist reducer', () => {
         {id: {videoId: 'superId1'}}
       ]);
     });
+
+    it('does not add video if it is already in playlist', () => {
+      const initialState = [{id: {videoId: 'superId1'}}];
+      expect(reducer(initialState, action)).to.eql(initialState);
+    });
   });
 
   describe('REMOVE_FROM_PLAYLIST', () => {
