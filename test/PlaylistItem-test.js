@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import PlaylistItem from '../src/components/PlaylistItem';
+import { PlaylistItem } from '../src/components/PlaylistItem';
 
 describe('PlaylistItem', () => {
   const minimumProps = {
