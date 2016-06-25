@@ -8,9 +8,17 @@ import App from './components/App';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleware(reducers);
+
+if (module.hot) {
+  module.hot.accept('./reducers', () => {
+    const nextReducer = require('./reducers/index').default;
+    store.replaceReducer(nextReducer);
+  });
+}
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <App />
   </Provider>
   , document.querySelector('.container'));
