@@ -30,6 +30,23 @@ const handleAddVideoToPlayer = (state, action) => {
   return Object.assign({}, state, {currentlyPlaying: action.videoId});
 };
 
+const handlePlayNext = state => {
+  const videoIds = state.videos.map(video => {
+    return video.id.videoId;
+  });
+
+  const currentVideoIndex = videoIds.indexOf(state.currentlyPlaying);
+
+  let nextVideoId;
+  if (currentVideoIndex === state.videos.length - 1) {
+    nextVideoId = videoIds[0];
+  } else {
+    nextVideoId = videoIds[currentVideoIndex + 1];
+  }
+
+  return Object.assign({}, state, {currentlyPlaying: nextVideoId});
+};
+
 const initialState = {
   currentlyPlaying: null,
   videos: []
@@ -45,6 +62,9 @@ export default function playlist(state = initialState, action) {
       break;
     case types.ADD_VIDEO_TO_PLAYER:
       return handleAddVideoToPlayer(state, action);
+      break;
+    case types.PLAY_NEXT:
+      return handlePlayNext(state);
       break;
     default:
       return state;

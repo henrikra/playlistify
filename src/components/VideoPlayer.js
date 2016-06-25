@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pausePlayer, playVideo } from '../actions';
+import { pausePlayer, playVideo, playNext } from '../actions';
 
 
 export class VideoPlayer extends Component {
@@ -14,7 +14,6 @@ export class VideoPlayer extends Component {
     this.onEnd = this.onEnd.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.onPause = this.onPause.bind(this);
-    this.getNextVideoId = this.getNextVideoId.bind(this);
     this.state = {player: null};
   }
 
@@ -32,29 +31,11 @@ export class VideoPlayer extends Component {
     this.setState({player: e.target});
   }
 
-  getNextVideoId() {
-    const { playlist, videoPlayer } = this.props;
-
-    const playlistVideoIds = playlist.videos.map(playlistItem => {
-      return playlistItem.id.videoId;
-    });
-
-    const currentVideoIndex = playlistVideoIds.indexOf(videoPlayer.videoId);
-
-    let nextVideoId;
-    if (currentVideoIndex === playlist.length - 1) {
-      nextVideoId = playlistVideoIds[0];
-    } else {
-      nextVideoId = playlistVideoIds[currentVideoIndex + 1];
-    }
-
-    return nextVideoId;
-  }
-
   onEnd() {
     this.props.pausePlayer();
     this.state.player.stopVideo();
-    this.props.playVideo(this.getNextVideoId());
+    this.props.playNext();
+    this.props.playVideo(this.props.playlist.currentlyPlaying);
   }
 
   onPause() {
@@ -92,7 +73,7 @@ function mapStateToProps({ videoPlayer, playlist }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({pausePlayer, playVideo}, dispatch);
+  return bindActionCreators({pausePlayer, playVideo, playNext}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoPlayer);
