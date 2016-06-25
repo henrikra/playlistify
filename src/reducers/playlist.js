@@ -31,10 +31,7 @@ const handleAddVideoToPlayer = (state, action) => {
 };
 
 const handlePlayNext = state => {
-  const videoIds = state.videos.map(video => {
-    return video.id.videoId;
-  });
-
+  const videoIds = state.videos.map(video => video.id.videoId);
   const currentVideoIndex = videoIds.indexOf(state.currentlyPlaying);
 
   let nextVideoId;
