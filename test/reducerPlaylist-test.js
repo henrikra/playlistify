@@ -67,12 +67,58 @@ describe('Playlist reducer', () => {
     });
   });
 
-  describe('ADD_VIDEO_TO_PLAYER', () => {
-    it('updates currentlyPlaying video id', () => {
-      const action = {type: types.ADD_VIDEO_TO_PLAYER, videoId: 'playThisNext'};
-      const expectedState = {currentlyPlaying: 'playThisNext', videos: []};
+  describe('PLAY_NEXT', () => {
+    const action = {type: types.PLAY_NEXT};
 
-      expect(reducer(undefined, action)).to.eql(expectedState);
+    it('sets next video in playlist to be currently playing', () => {
+      const initialState = {
+        currentlyPlaying: 'thisIsNowPlaying',
+        videos: [
+          {id: {videoId: 'thisIsNowPlaying'}},
+          {id: {videoId: 'playThisNext'}}
+        ]
+      };
+      const expectedState = {
+        currentlyPlaying: 'playThisNext',
+        videos: [
+          {id: {videoId: 'thisIsNowPlaying'}},
+          {id: {videoId: 'playThisNext'}}
+        ]
+      };
+
+      expect(reducer(initialState, action)).to.eql(expectedState);
+    });
+
+    it('sets same video as currentlyPlaying when one video in playlist', () => {
+      const initialState = {
+        currentlyPlaying: 'thisIsNowPlaying',
+        videos: [{id: {videoId: 'thisIsNowPlaying'}}]
+      };
+      const expectedState = {
+        currentlyPlaying: 'thisIsNowPlaying',
+        videos: [{id: {videoId: 'thisIsNowPlaying'}}]
+      };
+
+      expect(reducer(initialState, action)).to.eql(expectedState);
+    });
+
+    it('sets first video as currentlyPlaying if last video in playlist is playing', () => {
+      const initialState = {
+        currentlyPlaying: 'thisIsNowPlaying',
+        videos: [
+          {id: {videoId: 'playThisNext'}},
+          {id: {videoId: 'thisIsNowPlaying'}}
+        ]
+      };
+      const expectedState = {
+        currentlyPlaying: 'playThisNext',
+        videos: [
+          {id: {videoId: 'playThisNext'}},
+          {id: {videoId: 'thisIsNowPlaying'}}
+        ]
+      };
+
+      expect(reducer(initialState, action)).to.eql(expectedState);
     });
   });
 });
