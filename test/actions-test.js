@@ -59,9 +59,8 @@ describe('Actions', () => {
   });
 
   it('creates PLAY_NEXT action', () => {
-    const currentVideoId = '12345';
-    const expectedAction = {type: types.PLAY_NEXT, currentVideoId};
+    const expectedAction = {type: types.PLAY_NEXT};
 
-    expect(actions.playNext(currentVideoId)).to.eql(expectedAction);
+    expect(actions.playNext()).to.eql(expectedAction);
   });
 });

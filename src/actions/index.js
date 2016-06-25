@@ -40,6 +40,6 @@ export function pausePlayer() {
   return {type: types.PAUSE_PLAYER};
 }
 
-export function playNext(currentVideoId) {
-  return {type: types.PLAY_NEXT, currentVideoId};
+export function playNext() {
+  return {type: types.PLAY_NEXT};
 }
