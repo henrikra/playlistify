@@ -7,16 +7,20 @@ import PlaylistItem from '../src/components/PlaylistItem';
 
 describe('Playlist', () => {
   const minimumProps = {
-    playlist: []
+    playlist: {
+      videos: []
+    }
   };
 
   it('renders three PlaylistItem items', () => {
     const props = {
-      playlist: [
-        {title: 'Title 1'},
-        {title: 'Title 2'},
-        {title: 'Title 3'}
-      ]
+      playlist: {
+        videos: [
+          {title: 'Title 1'},
+          {title: 'Title 2'},
+          {title: 'Title 3'}
+        ]
+      } 
     };
 
     const wrapper = shallow(<Playlist {...props} />);

@@ -26,6 +26,10 @@ const handleAdd = (state, action) => {
   }
 };
 
+const handleAddVideoToPlayer = (state, action) => {
+  return Object.assign({}, state, {currentlyPlaying: action.videoId});
+};
+
 const initialState = {
   currentlyPlaying: null,
   videos: []
@@ -38,6 +42,9 @@ export default function playlist(state = initialState, action) {
       break;
     case types.REMOVE_FROM_PLAYLIST:
       return handleRemove(state, action);
+      break;
+    case types.ADD_VIDEO_TO_PLAYER:
+      return handleAddVideoToPlayer(state, action);
       break;
     default:
       return state;

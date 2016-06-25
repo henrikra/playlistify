@@ -66,4 +66,13 @@ describe('Playlist reducer', () => {
       expect(reducer(undefined, action)).to.eql(expectedState);
     });
   });
+
+  describe('ADD_VIDEO_TO_PLAYER', () => {
+    it('updates currentlyPlaying video id', () => {
+      const action = {type: types.ADD_VIDEO_TO_PLAYER, videoId: 'playThisNext'};
+      const expectedState = {currentlyPlaying: 'playThisNext', videos: []};
+
+      expect(reducer(undefined, action)).to.eql(expectedState);
+    });
+  });
 });
