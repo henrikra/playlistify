@@ -57,4 +57,11 @@ describe('Actions', () => {
 
     expect(actions.pausePlayer()).to.eql(expectedAction);
   });
+
+  it('creates PLAY_NEXT action', () => {
+    const currentVideoId = '12345';
+    const expectedAction = {type: types.PLAY_NEXT, currentVideoId};
+
+    expect(actions.playNext(currentVideoId)).to.eql(expectedAction);
+  });
 });

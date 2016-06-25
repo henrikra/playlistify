@@ -39,3 +39,7 @@ export function playVideo(videoId) {
 export function pausePlayer() {
   return {type: types.PAUSE_PLAYER};
 }
+
+export function playNext(currentVideoId) {
+  return {type: types.PLAY_NEXT, currentVideoId};
+}
