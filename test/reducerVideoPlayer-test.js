@@ -5,7 +5,8 @@ import types from '../src/constants/ActionTypes';
 
 describe('Video player reducer', () => {
   it('returns the initial state', () => {
-    expect(reducer(undefined, {})).to.eql({isPlaying: false});
+    const expectedState = {isPlaying: false, videos: []};
+    expect(reducer(undefined, {})).to.eql(expectedState);
   });
 
   it('handles ADD_VIDEO_TO_PLAYER', () => {
@@ -13,15 +14,16 @@ describe('Video player reducer', () => {
       type: types.ADD_VIDEO_TO_PLAYER,
       videoId: 'myVideoId'
     };
+    const expectedState = {isPlaying: true, videoId: 'myVideoId', videos: []};
 
-    expect(reducer(undefined, action)).to.eql({
-      isPlaying: true, videoId: 'myVideoId'
-    });
+    expect(reducer(undefined, action)).to.eql(expectedState);
   });
 
   it('handles PAUSE_PLAYER', () => {
     const action = {type: types.PAUSE_PLAYER};
+    const initialState = {isPlaying: true};
+    const expectedState = {isPlaying: false};
 
-    expect(reducer(undefined, action)).to.eql({isPlaying: false});
+    expect(reducer(initialState, action)).to.eql(expectedState);
   });
 });
