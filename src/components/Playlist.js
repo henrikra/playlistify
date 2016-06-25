@@ -5,7 +5,7 @@ import PlaylistItem from './PlaylistItem';
 
 export class Playlist extends Component {
   render() {
-    const playlistItems = this.props.playlist.map((playlistItem, index) => {
+    const playlistItems = this.props.playlist.videos.map((playlistItem, index) => {
       return <PlaylistItem key={index} playlistItem={playlistItem} />;
     });
 

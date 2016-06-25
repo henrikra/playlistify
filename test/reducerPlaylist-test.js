@@ -10,25 +10,33 @@ describe('Playlist reducer', () => {
       type: types.ADD_TO_PLAYLIST,
       video: {id: {videoId: 'superId1'}}
     };
+    const expectedState = {currentlyPlaying: null, videos: []};
 
     it('returns the initial state', () => {
-      expect(reducer(undefined, {})).to.eql([]);
+      expect(reducer(undefined, {})).to.eql(expectedState);
     });
 
     it('adds video to empty playlist', () => {
-      expect(reducer(undefined, action)).to.eql([{id: {videoId: 'superId1'}}]);
+      const expectedState = {currentlyPlaying: null, videos: [
+        {id: {videoId: 'superId1'}}
+      ]};
+      expect(reducer(undefined, action)).to.eql(expectedState);
     });
 
     it('adds video to already initialized playlist', () => {
-      const initialState = [{id: {videoId: 'idWhichWasAlreadyInPlaylist'}}];
-      expect(reducer(initialState, action)).to.eql([
+      const initialState = {videos: [
+        {id: {videoId: 'idWhichWasAlreadyInPlaylist'}}
+      ]};
+      const expectedState = {videos: [
         {id: {videoId: 'idWhichWasAlreadyInPlaylist'}},
         {id: {videoId: 'superId1'}}
-      ]);
+      ]};
+
+      expect(reducer(initialState, action)).to.eql(expectedState);
     });
 
     it('does not add video if it is already in playlist', () => {
-      const initialState = [{id: {videoId: 'superId1'}}];
+      const initialState = {videos: [{id: {videoId: 'superId1'}}]};
       expect(reducer(initialState, action)).to.eql(initialState);
     });
   });
@@ -40,21 +48,22 @@ describe('Playlist reducer', () => {
     };
 
     it('removes video from playlist', () => {
-      const initialState = [
+      const initialState = {videos: [
         {id: {videoId: 'superId1'}},
         {id: {videoId: 'superId2'}},
         {id: {videoId: 'superId3'}}
-      ];
-      const expectedState = [
+      ]};
+      const expectedState = {videos: [
         {id: {videoId: 'superId1'}},
         {id: {videoId: 'superId3'}}
-      ];
+      ]};
 
       expect(reducer(initialState, action)).to.eql(expectedState);
     });
 
     it('return playlist as it was when playlist is empty', () => {
-      expect(reducer(undefined, action)).to.eql([]);
+      const expectedState = {currentlyPlaying: null, videos: []};
+      expect(reducer(undefined, action)).to.eql(expectedState);
     });
   });
 });

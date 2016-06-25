@@ -35,7 +35,7 @@ export class VideoPlayer extends Component {
   getNextVideoId() {
     const { playlist, videoPlayer } = this.props;
 
-    const playlistVideoIds = playlist.map(playlistItem => {
+    const playlistVideoIds = playlist.videos.map(playlistItem => {
       return playlistItem.id.videoId;
     });
 

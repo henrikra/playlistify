@@ -12,17 +12,32 @@ const isAlreadyInPlaylist = (playlist, newVideoId) => {
   return playlist.filter(filterById(newVideoId)).length;
 };
 
-export default function playlist(state = [], action) {
+const handleRemove = (state, action) => {
+  return Object.assign({}, state, {
+    videos: state.videos.filter(filterByIdInversed(action.videoId))}
+  );
+};
+
+const handleAdd = (state, action) => {
+  if (isAlreadyInPlaylist(state.videos, action.video.id.videoId)) {
+    return state;
+  } else {
+    return Object.assign({}, state, {videos: [...state.videos, action.video] });
+  }
+};
+
+const initialState = {
+  currentlyPlaying: null,
+  videos: []
+};
+
+export default function playlist(state = initialState, action) {
   switch (action.type) {
     case types.ADD_TO_PLAYLIST:
-      if (isAlreadyInPlaylist(state, action.video.id.videoId)) {
-        return state;
-      } else {
-        return [...state, action.video];
-      }
+      return handleAdd(state, action);
       break;
     case types.REMOVE_FROM_PLAYLIST:
-      return state.filter(filterByIdInversed(action.videoId));
+      return handleRemove(state, action);
       break;
     default:
       return state;
