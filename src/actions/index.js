@@ -36,7 +36,7 @@ export function playVideo(videoId) {
   };
 }
 
-export function pausePlayer() {
+export function pauseVideoPlayer() {
   return {type: types.PAUSE_VIDEO_PLAYER};
 }
 

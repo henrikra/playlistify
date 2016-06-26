@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeVideoFromPlaylist, playVideo, pausePlayer } from '../actions';
+import { removeVideoFromPlaylist, playVideo, pauseVideoPlayer } from '../actions';
 
 export class PlaylistItem extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export class PlaylistItem extends Component {
   }
 
   handlePauseClick() {
-    this.props.pausePlayer();
+    this.props.pauseVideoPlayer();
   }
 
   isCurrentlyPlaying() {
@@ -53,7 +53,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     removeVideoFromPlaylist,
     playVideo,
-    pausePlayer
+    pauseVideoPlayer
   }, dispatch);
 }
 

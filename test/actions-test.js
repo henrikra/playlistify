@@ -53,7 +53,7 @@ describe('Actions', () => {
   it('creates PAUSE_VIDEO_PLAYER action', () => {
     const expectedAction = {type: types.PAUSE_VIDEO_PLAYER};
 
-    expect(actions.pausePlayer()).to.eql(expectedAction);
+    expect(actions.pauseVideoPlayer()).to.eql(expectedAction);
   });
 
   it('creates NEXT_VIDEO_FROM_PLAYLIST action', () => {
