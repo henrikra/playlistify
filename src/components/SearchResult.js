@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addVideoToPlaylist } from '../actions';
+import { addToPlaylist } from '../actions';
 
 export class SearchResult extends Component {
   constructor(props) {
@@ -12,8 +12,8 @@ export class SearchResult extends Component {
   }
 
   handleClick() {
-    const { addVideoToPlaylist, searchResult } = this.props;
-    addVideoToPlaylist(searchResult);
+    const { addToPlaylist, searchResult } = this.props;
+    addToPlaylist(searchResult);
   }
 
   render() {
@@ -29,7 +29,7 @@ export class SearchResult extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addVideoToPlaylist}, dispatch);
+  return bindActionCreators({addToPlaylist}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchResult);

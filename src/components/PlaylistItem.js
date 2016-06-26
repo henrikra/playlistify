@@ -2,24 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removeVideoFromPlaylist, playVideo, pauseVideoPlayer } from '../actions';
+import {
+  removeFromPlaylist,
+  updateCurrentVideoId,
+  playVideoPlayer,
+  pauseVideoPlayer
+} from '../actions';
 
 export class PlaylistItem extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this); //
+    this.handleClick = this.handleClick.bind(this);
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handlePauseClick = this.handlePauseClick.bind(this);
     this.isCurrentlyPlaying = this.isCurrentlyPlaying.bind(this);
   }
 
   handleClick() {
-    this.props.removeVideoFromPlaylist(this.props.playlistItem.id.videoId);
+    this.props.removeFromPlaylist(this.props.playlistItem.id.videoId);
   }
 
   handlePlayClick() {
-    this.props.playVideo(this.props.playlistItem.id.videoId);
+    this.props.updateCurrentVideoId(this.props.playlistItem.id.videoId);
+    this.props.playVideoPlayer();
   }
 
   handlePauseClick() {
@@ -27,8 +33,8 @@ export class PlaylistItem extends Component {
   }
 
   isCurrentlyPlaying() {
-    const { playlistItem, videoPlayer } = this.props;
-    return videoPlayer.isPlaying && videoPlayer.videoId === playlistItem.id.videoId;
+    const { playlistItem, playlist, videoPlayer } = this.props;
+    return videoPlayer.isPlaying && playlist.currentVideoId === playlistItem.id.videoId;
   }
 
   render() {
@@ -45,14 +51,15 @@ export class PlaylistItem extends Component {
   }
 }
 
-function mapStateToProps({ videoPlayer }) {
-  return {videoPlayer};
+function mapStateToProps({ videoPlayer, playlist }) {
+  return {videoPlayer, playlist};
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    removeVideoFromPlaylist,
-    playVideo,
+    removeFromPlaylist,
+    updateCurrentVideoId,
+    playVideoPlayer,
     pauseVideoPlayer
   }, dispatch);
 }
