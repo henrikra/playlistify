@@ -40,7 +40,7 @@ describe('Playlist reducer', () => {
 
     it('does not add video if it is already in playlist', () => {
       const initialState = {videos: [{id: {videoId: 'superId1'}}]};
-      
+
       expect(reducer(initialState, action)).to.eql(initialState);
     });
   });
@@ -66,8 +66,9 @@ describe('Playlist reducer', () => {
     });
 
     it('return playlist as it was when playlist is empty', () => {
-      const expectedState = {currentVideoId: null, videos: []};
-      expect(reducer(undefined, action)).to.eql(expectedState);
+      const initialState = {videos: []};
+      
+      expect(reducer(initialState, action)).to.eql(initialState);
     });
   });
 
