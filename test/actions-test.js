@@ -37,7 +37,7 @@ describe('Actions', () => {
       videoId
     };
 
-    expect(actions.removeVideoFromPlaylist(videoId)).to.eql(expectedAction);
+    expect(actions.removeFromPlaylist(videoId)).to.eql(expectedAction);
   });
 
   it('creates ADD_VIDEO_TO_PLAYER action', () => {

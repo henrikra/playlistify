@@ -22,7 +22,7 @@ export function addToPlaylist(video) {
   };
 }
 
-export function removeVideoFromPlaylist(videoId) {
+export function removeFromPlaylist(videoId) {
   return {
     type: types.REMOVE_FROM_PLAYLIST,
     videoId

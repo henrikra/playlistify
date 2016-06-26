@@ -22,7 +22,7 @@ const handleAdd = (state, action) => {
   if (isAlreadyInPlaylist(state.videos, action.video.id.videoId)) {
     return state;
   } else {
-    return Object.assign({}, state, {videos: [...state.videos, action.video] });
+    return Object.assign({}, state, {videos: [...state.videos, action.video]});
   }
 };
 
