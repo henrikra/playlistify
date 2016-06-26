@@ -8,8 +8,8 @@ const filterById = videoId => {
   return video => video.id.videoId === videoId;
 };
 
-const isAlreadyInPlaylist = (playlist, newVideoId) => {
-  return playlist.filter(filterById(newVideoId)).length;
+const isAlreadyInPlaylist = (videos, newVideoId) => {
+  return videos.filter(filterById(newVideoId)).length;
 };
 
 const handleRemove = (state, action) => {

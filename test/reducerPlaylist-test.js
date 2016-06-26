@@ -10,16 +10,19 @@ describe('Playlist reducer', () => {
       type: types.ADD_TO_PLAYLIST,
       video: {id: {videoId: 'superId1'}}
     };
-    const expectedState = {currentVideoId: null, videos: []};
 
     it('returns the initial state', () => {
+      const expectedState = {currentVideoId: null, videos: []};
+
       expect(reducer(undefined, {})).to.eql(expectedState);
     });
 
     it('adds video to empty playlist', () => {
-      const expectedState = {currentVideoId: null, videos: [
-        {id: {videoId: 'superId1'}}
-      ]};
+      const expectedState = {
+        currentVideoId: null,
+        videos: [{id: {videoId: 'superId1'}}]
+      };
+
       expect(reducer(undefined, action)).to.eql(expectedState);
     });
 
