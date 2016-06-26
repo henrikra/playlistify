@@ -6,25 +6,17 @@ import { SearchResults } from '../src/components/SearchResults';
 import SearchResult from '../src/components/SearchResult';
 
 describe('SearchResults', () => {
-  const minimumProps = {
-    searchResults: []
-  };
-
-  it('renders three list items', () => {
-    const props = {
-      searchResults: [
-        {etag: '', snippet: {title: ''}},
-        {etag: '', snippet: {title: ''}},
-        {etag: '', snippet: {title: ''}}
-      ]
-    };
-
+  it('does not render any SearchResult components with empty searchResults', () => {
+    const props = {searchResults: []};
     const wrapper = shallow(<SearchResults {...props} />);
-    expect(wrapper.find(SearchResult)).to.have.length(3);
+
+    expect(wrapper.find(SearchResult)).to.have.length(0);
   });
 
-  it('does not render list items with empty searchResults', () => {
-    const wrapper = shallow(<SearchResults {...minimumProps} />);
-    expect(wrapper.find(SearchResult)).to.have.length(0);
+  it('renders three SearchResult components', () => {
+    const props = {searchResults: [1, 2, 3]};
+    const wrapper = shallow(<SearchResults {...props} />);
+
+    expect(wrapper.find(SearchResult)).to.have.length(3);
   });
 });
