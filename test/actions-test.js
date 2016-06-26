@@ -68,4 +68,10 @@ describe('Actions', () => {
 
     expect(actions.updateCurrentVideoId(newVideoId)).to.eql(expectedAction);
   });
+
+  it('creates PLAY_VIDEO_PLAYER action', () => {
+    const expectedAction = {type: types.PLAY_VIDEO_PLAYER};
+
+    expect(actions.playVideoPlayer()).to.eql(expectedAction);
+  });
 });

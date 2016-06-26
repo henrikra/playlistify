@@ -36,6 +36,10 @@ export function playVideo(videoId) {
   };
 }
 
+export function playVideoPlayer() {
+  return {type: types.PLAY_VIDEO_PLAYER};
+}
+
 export function pauseVideoPlayer() {
   return {type: types.PAUSE_VIDEO_PLAYER};
 }
