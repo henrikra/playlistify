@@ -13,13 +13,13 @@ export class PlaylistItem extends Component {
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleRemoveClick = this.handleRemoveClick.bind(this);
     this.handlePlayClick = this.handlePlayClick.bind(this);
     this.handlePauseClick = this.handlePauseClick.bind(this);
     this.isCurrentlyPlaying = this.isCurrentlyPlaying.bind(this);
   }
 
-  handleClick() {
+  handleRemoveClick() {
     this.props.removeFromPlaylist(this.props.playlistItem.id.videoId);
   }
 
@@ -42,7 +42,7 @@ export class PlaylistItem extends Component {
     return (
       <li>
         {playlistItem.snippet.title}
-        <button onClick={this.handleClick}>-</button>
+        <button onClick={this.handleRemoveClick}>-</button>
         <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
           {this.isCurrentlyPlaying() ? 'Pause' : 'Play'}
         </button>
