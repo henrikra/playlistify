@@ -50,8 +50,8 @@ describe('Actions', () => {
     expect(actions.playVideo(videoId)).to.eql(expectedAction);
   });
 
-  it('creates PAUSE_PLAYER action', () => {
-    const expectedAction = {type: types.PAUSE_PLAYER};
+  it('creates PAUSE_VIDEO_PLAYER action', () => {
+    const expectedAction = {type: types.PAUSE_VIDEO_PLAYER};
 
     expect(actions.pausePlayer()).to.eql(expectedAction);
   });

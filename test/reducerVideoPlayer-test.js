@@ -19,8 +19,8 @@ describe('Video player reducer', () => {
     expect(reducer(undefined, action)).to.eql(expectedState);
   });
 
-  it('handles PAUSE_PLAYER', () => {
-    const action = {type: types.PAUSE_PLAYER};
+  it('handles PAUSE_VIDEO_PLAYER', () => {
+    const action = {type: types.PAUSE_VIDEO_PLAYER};
     const initialState = {isPlaying: true};
     const expectedState = {isPlaying: false};
 
