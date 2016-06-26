@@ -43,3 +43,7 @@ export function pausePlayer() {
 export function nextVideoFromPlaylist() {
   return {type: types.NEXT_VIDEO_FROM_PLAYLIST};
 }
+
+export function updateCurrentVideoId(newVideoId) {
+  return {type: types.UPDATE_CURRENT_VIDEO_ID, newVideoId};
+}

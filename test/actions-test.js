@@ -61,4 +61,11 @@ describe('Actions', () => {
 
     expect(actions.nextVideoFromPlaylist()).to.eql(expectedAction);
   });
+
+  it('creates UPDATE_CURRENT_VIDEO_ID action', () => {
+    const newVideoId = 'thisIsVideoId';
+    const expectedAction = {type: types.UPDATE_CURRENT_VIDEO_ID, newVideoId};
+
+    expect(actions.updateCurrentVideoId(newVideoId)).to.eql(expectedAction);
+  });
 });
