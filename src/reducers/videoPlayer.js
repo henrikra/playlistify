@@ -10,6 +10,9 @@ export default function searchResults(state = initialState, action) {
     case types.ADD_VIDEO_TO_PLAYER:
       return Object.assign({}, state, {isPlaying: true, videoId: action.videoId});
       break;
+    case types.PLAY_VIDEO_PLAYER:
+      return Object.assign({}, state, {isPlaying: true});
+      break;
     case types.PAUSE_VIDEO_PLAYER:
       return Object.assign({}, state, {isPlaying: false});
       break;
