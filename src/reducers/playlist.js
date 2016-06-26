@@ -8,7 +8,7 @@ const hasId = videoId => {
   return video => video.id.videoId === videoId;
 };
 
-const isAlreadyInPlaylist = (videos, newVideoId) => {
+const isInPlaylist = (videos, newVideoId) => {
   return videos.filter(hasId(newVideoId)).length;
 };
 
@@ -19,7 +19,7 @@ const handleRemove = (state, action) => {
 };
 
 const handleAdd = (state, action) => {
-  if (isAlreadyInPlaylist(state.videos, action.video.id.videoId)) {
+  if (isInPlaylist(state.videos, action.video.id.videoId)) {
     return state;
   } else {
     return Object.assign({}, state, {videos: [...state.videos, action.video]});
