@@ -9,11 +9,19 @@ export class SearchResult extends Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.isInPlaylist = this.isInPlaylist.bind(this);
   }
 
   handleClick() {
     const { addToPlaylist, searchResult } = this.props;
     addToPlaylist(searchResult);
+  }
+
+  isInPlaylist() {
+    const { playlist, searchResult } = this.props;
+    const playlistVideoIds = playlist.videos.map(video => video.id.videoId);
+
+    return playlistVideoIds.includes(searchResult.id.videoId);
   }
 
   render() {
@@ -22,14 +30,18 @@ export class SearchResult extends Component {
     return (
       <li>
         {searchResult.snippet.title}
-        <button onClick={this.handleClick}>+</button>
+        {!this.isInPlaylist() && <button onClick={this.handleClick}>+</button>}
       </li>
     );
   }
+}
+
+function mapStateToProps({ playlist }) {
+  return {playlist};
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({addToPlaylist}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(SearchResult);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);
