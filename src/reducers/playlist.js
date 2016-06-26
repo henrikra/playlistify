@@ -28,7 +28,7 @@ const handleAdd = (state, action) => {
 
 const handlePlayNext = state => {
   const videoIds = state.videos.map(video => video.id.videoId);
-  const currentVideoIndex = videoIds.indexOf(state.currentlyPlaying);
+  const currentVideoIndex = videoIds.indexOf(state.currentVideoId);
 
   let nextVideoId;
   if (currentVideoIndex === state.videos.length - 1) {
@@ -37,11 +37,11 @@ const handlePlayNext = state => {
     nextVideoId = videoIds[currentVideoIndex + 1];
   }
 
-  return Object.assign({}, state, {currentlyPlaying: nextVideoId});
+  return Object.assign({}, state, {currentVideoId: nextVideoId});
 };
 
 const initialState = {
-  currentlyPlaying: null,
+  currentVideoId: null,
   videos: []
 };
 

@@ -15,7 +15,7 @@ export function fetchSearchResults(searchTerm) {
   };
 }
 
-export function addVideoToPlaylist(video) {
+export function addToPlaylist(video) {
   return {
     type: types.ADD_TO_PLAYLIST,
     video

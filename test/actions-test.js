@@ -21,15 +21,13 @@ describe('Actions', () => {
   });
 
   it('creates ADD_TO_PLAYLIST action', () => {
-    const video = {
-      etag: 'testEtag'
-    };
+    const video = 1;
     const expectedAction = {
       type: types.ADD_TO_PLAYLIST,
-      video: {etag: 'testEtag'}
+      video: 1
     };
 
-    expect(actions.addVideoToPlaylist(video)).to.eql(expectedAction);
+    expect(actions.addToPlaylist(video)).to.eql(expectedAction);
   });
 
   it('creates REMOVE_FROM_PLAYLIST action', () => {
