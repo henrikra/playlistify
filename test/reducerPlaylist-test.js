@@ -99,12 +99,8 @@ describe('Playlist reducer', () => {
         currentVideoId: 'thisIsNowPlaying',
         videos: [{id: {videoId: 'thisIsNowPlaying'}}]
       };
-      const expectedState = {
-        currentVideoId: 'thisIsNowPlaying',
-        videos: [{id: {videoId: 'thisIsNowPlaying'}}]
-      };
 
-      expect(reducer(initialState, action)).to.eql(expectedState);
+      expect(reducer(initialState, action)).to.eql(initialState);
     });
 
     it('sets first video as currentVideoId if last video in playlist is playing', () => {
