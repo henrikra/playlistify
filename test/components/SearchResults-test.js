@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import { SearchResults } from '../src/components/SearchResults';
-import SearchResult from '../src/components/SearchResult';
+import { SearchResults } from '../../src/components/SearchResults';
+import SearchResult from '../../src/components/SearchResult';
 
 describe('SearchResults', () => {
   it('does not render any SearchResult components with empty searchResults', () => {

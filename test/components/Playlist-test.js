@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import { Playlist } from '../src/components/Playlist';
-import PlaylistItem from '../src/components/PlaylistItem';
+import { Playlist } from '../../src/components/Playlist';
+import PlaylistItem from '../../src/components/PlaylistItem';
 
 describe('Playlist', () => {
   const minimumProps = {
@@ -20,7 +20,7 @@ describe('Playlist', () => {
           {title: 'Title 2'},
           {title: 'Title 3'}
         ]
-      } 
+      }
     };
 
     const wrapper = shallow(<Playlist {...props} />);

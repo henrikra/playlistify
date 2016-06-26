@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import { SearchResult } from '../src/components/SearchResult';
+import { SearchResult } from '../../src/components/SearchResult';
 
 describe('SearchResult', () => {
   const minimumProps = {
