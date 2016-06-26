@@ -9,13 +9,8 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'react-hot'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
+        loaders: ['react-hot', 'babel'],
+        exclude: /node_modules/
       }
     ]
   },
