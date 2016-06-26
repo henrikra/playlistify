@@ -40,16 +40,6 @@ describe('Actions', () => {
     expect(actions.removeFromPlaylist(videoId)).to.eql(expectedAction);
   });
 
-  it('creates ADD_VIDEO_TO_PLAYER action', () => {
-    const videoId = 'superVideoId123';
-    const expectedAction = {
-      type: types.ADD_VIDEO_TO_PLAYER,
-      videoId
-    };
-
-    expect(actions.playVideo(videoId)).to.eql(expectedAction);
-  });
-
   it('creates PAUSE_VIDEO_PLAYER action', () => {
     const expectedAction = {type: types.PAUSE_VIDEO_PLAYER};
 
