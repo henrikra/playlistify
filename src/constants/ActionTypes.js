@@ -6,5 +6,5 @@ export default keyMirror({
   REMOVE_FROM_PLAYLIST: null,
   ADD_VIDEO_TO_PLAYER: null,
   PAUSE_PLAYER: null,
-  PLAY_NEXT: null
+  NEXT_VIDEO_FROM_PLAYLIST: null
 });

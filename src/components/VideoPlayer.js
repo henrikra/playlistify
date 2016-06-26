@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pausePlayer, playVideo, playNext } from '../actions';
+import { pausePlayer, playVideo, nextVideoFromPlaylist } from '../actions';
 
 
 export class VideoPlayer extends Component {
@@ -34,7 +34,7 @@ export class VideoPlayer extends Component {
   onEnd() {
     this.props.pausePlayer();
     this.state.player.stopVideo();
-    this.props.playNext();
+    this.props.nextVideoFromPlaylist();
     this.props.playVideo(this.props.playlist.currentlyPlaying);
   }
 
@@ -73,7 +73,7 @@ function mapStateToProps({ videoPlayer, playlist }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({pausePlayer, playVideo, playNext}, dispatch);
+  return bindActionCreators({pausePlayer, playVideo, nextVideoFromPlaylist}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoPlayer);

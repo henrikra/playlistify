@@ -53,7 +53,7 @@ export default function playlist(state = initialState, action) {
     case types.REMOVE_FROM_PLAYLIST:
       return handleRemove(state, action);
       break;
-    case types.PLAY_NEXT:
+    case types.NEXT_VIDEO_FROM_PLAYLIST:
       return handlePlayNext(state);
       break;
     default:

@@ -56,9 +56,9 @@ describe('Actions', () => {
     expect(actions.pausePlayer()).to.eql(expectedAction);
   });
 
-  it('creates PLAY_NEXT action', () => {
-    const expectedAction = {type: types.PLAY_NEXT};
+  it('creates NEXT_VIDEO_FROM_PLAYLIST action', () => {
+    const expectedAction = {type: types.NEXT_VIDEO_FROM_PLAYLIST};
 
-    expect(actions.playNext()).to.eql(expectedAction);
+    expect(actions.nextVideoFromPlaylist()).to.eql(expectedAction);
   });
 });

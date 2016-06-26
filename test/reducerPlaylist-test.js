@@ -67,13 +67,13 @@ describe('Playlist reducer', () => {
 
     it('return playlist as it was when playlist is empty', () => {
       const initialState = {videos: []};
-      
+
       expect(reducer(initialState, action)).to.eql(initialState);
     });
   });
 
-  describe('PLAY_NEXT', () => {
-    const action = {type: types.PLAY_NEXT};
+  describe('NEXT_VIDEO_FROM_PLAYLIST', () => {
+    const action = {type: types.NEXT_VIDEO_FROM_PLAYLIST};
 
     it('sets next video in playlist to be currently playing', () => {
       const initialState = {
