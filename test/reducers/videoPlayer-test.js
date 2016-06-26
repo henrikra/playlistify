@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 
-import reducer from '../src/reducers/videoPlayer';
-import types from '../src/constants/ActionTypes';
+import reducer from '../../src/reducers/videoPlayer';
+import types from '../../src/constants/ActionTypes';
 
 describe('Video player reducer', () => {
   it('returns the initial state', () => {
     const expectedState = {isPlaying: false};
-    
+
     expect(reducer(undefined, {})).to.eql(expectedState);
   });
 

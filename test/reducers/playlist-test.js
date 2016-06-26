@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 
-import reducer from '../src/reducers/playlist';
-import types from '../src/constants/ActionTypes';
+import reducer from '../../src/reducers/playlist';
+import types from '../../src/constants/ActionTypes';
 
 describe('Playlist reducer', () => {
 
