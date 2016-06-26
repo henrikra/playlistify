@@ -13,6 +13,6 @@ describe('SearchResult', () => {
 
   it('contains video title', () => {
     const wrapper = shallow(<SearchResult {...minimumProps} />);
-    expect(wrapper).to.contain.text(minimumProps.searchResult.snippet.title);
+    expect(wrapper).to.contain.text('Video title 1');
   });
 });
