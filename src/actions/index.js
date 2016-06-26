@@ -3,7 +3,7 @@ import { searchYouTube } from '../utils/youtube';
 
 function fetchVideosSuccess(videos) {
   return {
-    type: types.SEARCH_VIDEOS,
+    type: types.FETCH_SEARCH_RESULTS,
     videos
   };
 }

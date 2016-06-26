@@ -8,9 +8,9 @@ describe('Search results reducer', () => {
     expect(reducer(undefined, {})).to.eql([]);
   });
 
-  it('handles SEARCH_VIDEOS', () => {
+  it('handles FETCH_SEARCH_RESULTS', () => {
     const action = {
-      type: types.SEARCH_VIDEOS,
+      type: types.FETCH_SEARCH_RESULTS,
       videos: [1, 2, 3]
     };
 

@@ -9,13 +9,13 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Actions', () => {
-  it('creates SEARCH_VIDEOS when fetching videos has been done', () => {
+  it('creates FETCH_SEARCH_RESULTS when fetching videos has been done', () => {
     const store = mockStore();
 
     return store.dispatch(actions.fetchVideos())
       .then(() => {
         const action = store.getActions()[0];
-        expect(action.type).to.equal(types.SEARCH_VIDEOS);
+        expect(action.type).to.equal(types.FETCH_SEARCH_RESULTS);
         expect(action.videos).to.have.length(20);
       });
   });
