@@ -20,7 +20,8 @@ describe('PlaylistItem', () => {
 
   it('shows play button when PlaylistItem is not currently playing', () => {
     const props = Object.assign({}, minimumProps, {
-      videoPlayer: {isPlaying: false, videoId: 'myId'}
+      videoPlayer: {isPlaying: false},
+      playlist: {currentVideoId: 'myId'}
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
@@ -29,7 +30,8 @@ describe('PlaylistItem', () => {
 
   it('shows pause button when PlaylistItem is currently playing', () => {
     const props = Object.assign({}, minimumProps, {
-      videoPlayer: {isPlaying: true, videoId: 'firstVideoId'}
+      videoPlayer: {isPlaying: true},
+      playlist: {currentVideoId: 'firstVideoId'}
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
