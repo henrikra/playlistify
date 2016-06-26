@@ -122,4 +122,24 @@ describe('Playlist reducer', () => {
       expect(reducer(initialState, action)).to.eql(expectedState);
     });
   });
+
+  describe('UPDATE_CURRENT_VIDEO_ID', () => {
+    const action = {
+      type: types.UPDATE_CURRENT_VIDEO_ID,
+      newVideoId: 'coolVideoId'
+    };
+
+    it('updates initial currentVideoId value with new one', () => {
+      const expectedState = {currentVideoId: 'coolVideoId', videos: []};
+
+      expect(reducer(undefined, action)).to.eql(expectedState);
+    });
+
+    it('updates currentVideoId with new one', () => {
+      const initialState = {currentVideoId: 'oldVideoId'};
+      const expectedState = {currentVideoId: 'coolVideoId'};
+
+      expect(reducer(initialState, action)).to.eql(expectedState);
+    });
+  });
 });

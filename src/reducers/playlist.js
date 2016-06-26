@@ -40,6 +40,10 @@ const handlePlayNext = state => {
   return Object.assign({}, state, {currentVideoId: nextVideoId});
 };
 
+const handleUpdateCurrentVideoId = (state, action) => {
+  return Object.assign({}, state, {currentVideoId: action.newVideoId});
+};
+
 const initialState = {
   currentVideoId: null,
   videos: []
@@ -55,6 +59,9 @@ export default function playlist(state = initialState, action) {
       break;
     case types.NEXT_VIDEO_FROM_PLAYLIST:
       return handlePlayNext(state);
+      break;
+    case types.UPDATE_CURRENT_VIDEO_ID:
+      return handleUpdateCurrentVideoId(state, action);
       break;
     default:
       return state;
