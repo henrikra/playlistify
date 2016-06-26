@@ -29,13 +29,6 @@ export function removeFromPlaylist(videoId) {
   };
 }
 
-export function playVideo(videoId) {
-  return {
-    type: types.ADD_VIDEO_TO_PLAYER,
-    videoId
-  };
-}
-
 export function playVideoPlayer() {
   return {type: types.PLAY_VIDEO_PLAYER};
 }
