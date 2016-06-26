@@ -12,7 +12,7 @@ describe('Actions', () => {
   it('creates FETCH_SEARCH_RESULTS when fetching videos has been done', () => {
     const store = mockStore();
 
-    return store.dispatch(actions.fetchVideos())
+    return store.dispatch(actions.fetchSearchResults())
       .then(() => {
         const action = store.getActions()[0];
         expect(action.type).to.equal(types.FETCH_SEARCH_RESULTS);

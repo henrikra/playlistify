@@ -1,17 +1,17 @@
 import types from '../constants/ActionTypes';
 import { searchYouTube } from '../utils/youtube';
 
-function fetchVideosSuccess(videos) {
+function fetchSearchResultsSuccess(videos) {
   return {
     type: types.FETCH_SEARCH_RESULTS,
     videos
   };
 }
 
-export function fetchVideos(searchTerm) {
+export function fetchSearchResults(searchTerm) {
   return dispatch => {
     return searchYouTube(searchTerm)
-      .then(({ data }) => dispatch(fetchVideosSuccess(data.items)));
+      .then(({ data }) => dispatch(fetchSearchResultsSuccess(data.items)));
   };
 }
 
