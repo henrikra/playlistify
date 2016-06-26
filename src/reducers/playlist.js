@@ -1,20 +1,20 @@
 import types from '../constants/ActionTypes';
 
-const filterByIdInversed = videoId => {
+const hasDifferentId = videoId => {
   return video => video.id.videoId !== videoId;
 };
 
-const filterById = videoId => {
+const hasId = videoId => {
   return video => video.id.videoId === videoId;
 };
 
 const isAlreadyInPlaylist = (videos, newVideoId) => {
-  return videos.filter(filterById(newVideoId)).length;
+  return videos.filter(hasId(newVideoId)).length;
 };
 
 const handleRemove = (state, action) => {
   return Object.assign({}, state, {
-    videos: state.videos.filter(filterByIdInversed(action.videoId))}
+    videos: state.videos.filter(hasDifferentId(action.videoId))}
   );
 };
 
