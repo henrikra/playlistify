@@ -16,7 +16,7 @@ describe('Actions', () => {
       .then(() => {
         const action = store.getActions()[0];
         expect(action.type).to.equal(types.FETCH_SEARCH_RESULTS);
-        expect(action.videos).to.have.length(20);
+        expect(action.searchResults).to.have.length(20);
       });
   });
 

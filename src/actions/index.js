@@ -1,10 +1,10 @@
 import types from '../constants/ActionTypes';
 import { searchYouTube } from '../utils/youtube';
 
-function fetchSearchResultsSuccess(videos) {
+function fetchSearchResultsSuccess(searchResults) {
   return {
     type: types.FETCH_SEARCH_RESULTS,
-    videos
+    searchResults
   };
 }
 
