@@ -5,18 +5,9 @@ import types from '../src/constants/ActionTypes';
 
 describe('Video player reducer', () => {
   it('returns the initial state', () => {
-    const expectedState = {isPlaying: false, videos: []};
+    const expectedState = {isPlaying: false};
+    
     expect(reducer(undefined, {})).to.eql(expectedState);
-  });
-
-  it('handles ADD_VIDEO_TO_PLAYER', () => {
-    const action = {
-      type: types.ADD_VIDEO_TO_PLAYER,
-      videoId: 'myVideoId'
-    };
-    const expectedState = {isPlaying: true, videoId: 'myVideoId', videos: []};
-
-    expect(reducer(undefined, action)).to.eql(expectedState);
   });
 
   it('handles PLAY_VIDEO_PLAYER', () => {
