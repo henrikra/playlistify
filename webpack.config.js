@@ -11,6 +11,10 @@ module.exports = {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader', 'postcss-loader']
       }
     ]
   },
@@ -20,5 +24,5 @@ module.exports = {
       poll: true
     }
   },
-  devtool: "#inline-source-map"
+  devtool: '#inline-source-map'
 };

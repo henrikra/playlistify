@@ -5,6 +5,8 @@ import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 import VideoPlayer from './VideoPlayer';
 
+require('../../style/style.css');
+
 export default class App extends Component {
   render() {
     return (
