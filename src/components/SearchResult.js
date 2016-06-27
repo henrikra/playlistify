@@ -28,7 +28,8 @@ export class SearchResult extends Component {
     const { searchResult } = this.props;
 
     return (
-      <li>
+      <li className="search-result">
+        <img src={searchResult.snippet.thumbnails.medium.url} />
         {searchResult.snippet.title}
         {!this.isInPlaylist() && <button onClick={this.handleClick}>+</button>}
       </li>
