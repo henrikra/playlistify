@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import Icon from './Icon';
+
 import {
   removeFromPlaylist,
   updateCurrentVideoId,
@@ -42,7 +44,7 @@ export class PlaylistItem extends Component {
     return (
       <li>
         <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
-          {this.isCurrentlyPlaying() ? 'Pause' : 'Play'}
+          {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
         </button>
         {playlistItem.snippet.title}
         <button onClick={this.handleRemoveClick}>-</button>

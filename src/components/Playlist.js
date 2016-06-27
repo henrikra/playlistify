@@ -10,7 +10,7 @@ export class Playlist extends Component {
     });
 
     return (
-      <ul>
+      <ul className="playlist">
         {playlistItems}
       </ul>
     );

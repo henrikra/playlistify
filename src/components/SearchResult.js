@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { addToPlaylist } from '../actions';
+import Icon from './Icon';
 
 export class SearchResult extends Component {
   constructor(props) {
@@ -31,7 +32,11 @@ export class SearchResult extends Component {
       <li className="search-result">
         <div className="search-result__image">
           <div className="search-result__image-overlay">
-            {!this.isInPlaylist() && <button className="search-result__add-btn" onClick={this.handleClick}>+</button>}
+            {!this.isInPlaylist() && (
+              <button className="search-result__add-btn" onClick={this.handleClick}>
+                <Icon icon="fa-plus" />
+              </button>
+            )}
           </div>
           <img src={searchResult.snippet.thumbnails.medium.url} />
         </div>
