@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import { PlaylistItem } from '../../src/components/PlaylistItem';
+import Icon from '../../src/components/Icon';
 
 describe('PlaylistItem', () => {
   const minimumProps = {
@@ -25,7 +26,7 @@ describe('PlaylistItem', () => {
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
-    expect(wrapper).to.contain.text('Play');
+    expect(wrapper).to.contain(<Icon icon="fa-play" />);
   });
 
   it('shows pause button when PlaylistItem is currently playing', () => {
@@ -35,6 +36,6 @@ describe('PlaylistItem', () => {
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
-    expect(wrapper).to.contain.text('Pause');
+    expect(wrapper).to.contain(<Icon icon="fa-pause" />);
   });
 });

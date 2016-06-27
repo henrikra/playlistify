@@ -8,7 +8,7 @@ describe('SearchResult', () => {
   const minimumProps = {
     searchResult: {
       id: {videoId: 'id'},
-      snippet: {title: 'Video title 1'}
+      snippet: {title: 'Video title 1', thumbnails: {medium: ''}}
     },
     playlist: {videos: []}
   };
