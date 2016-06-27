@@ -29,9 +29,15 @@ export class SearchResult extends Component {
 
     return (
       <li className="search-result">
-        <img src={searchResult.snippet.thumbnails.medium.url} />
-        {searchResult.snippet.title}
-        {!this.isInPlaylist() && <button onClick={this.handleClick}>+</button>}
+        <div className="search-result__image">
+          <div className="search-result__image-overlay">
+            {!this.isInPlaylist() && <button className="search-result__add-btn" onClick={this.handleClick}>+</button>}
+          </div>
+          <img src={searchResult.snippet.thumbnails.medium.url} />
+        </div>
+        <div className="search-result__content">
+          {searchResult.snippet.title}
+        </div>
       </li>
     );
   }
