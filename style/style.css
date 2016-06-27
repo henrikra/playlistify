@@ -1,0 +1,17 @@
+body {
+  background: #202334;
+  color: #fff;
+}
+
+.row {
+  lost-utility: clearfix;
+  lost-center: 1170px;
+}
+
+.main-content {
+  lost-column: 3/4;
+}
+
+.sidebar {
+  lost-column: 1/4;
+}

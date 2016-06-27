@@ -41,11 +41,11 @@ export class PlaylistItem extends Component {
     const { playlistItem } = this.props;
     return (
       <li>
-        {playlistItem.snippet.title}
-        <button onClick={this.handleRemoveClick}>-</button>
         <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
           {this.isCurrentlyPlaying() ? 'Pause' : 'Play'}
         </button>
+        {playlistItem.snippet.title}
+        <button onClick={this.handleRemoveClick}>-</button>
       </li>
     );
   }
