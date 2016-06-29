@@ -1,11 +1,14 @@
-$dark-blue: #202334;
+$brand-primary: #FFAC15;
+$darkest-blue: #202334;
+$dark-blue: #353954;
+$blue: #434762;
 $light-blue: #53597B;
 
 body {
-  background: $dark-blue;
+  background: $darkest-blue;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 img {
@@ -15,16 +18,16 @@ img {
 @lost gutter 15px;
 
 .row {
-  lost-utility: clearfix;
+  lost-flex-container: row;
   lost-center: 1170px;
 }
 
 .main-content {
-  lost-column: 3/4;
+  lost-column: 3/4 flex;
 }
 
 .sidebar {
-  lost-column: 1/4;
+  lost-column: 1/4 flex;
 }
 
 .search-results {
@@ -37,7 +40,6 @@ img {
   lost-column: 1/4 flex;
   background: $light-blue;
   margin-bottom: 15px;
-  font-size: 14px;
 
   &__image {
     position: relative;
@@ -51,7 +53,7 @@ img {
     bottom: 0;
     opacity: 0;
     transition: .3s ease-in-out;
-    background: color($dark-blue a(80%));
+    background: color($darkest-blue a(80%));
   }
 
   &__content {
@@ -65,7 +67,35 @@ img {
   }
 }
 
+.sidebar {
+  background: $blue;
+}
+
 .playlist {
   padding: 0;
   list-style: none;
+}
+
+.playlist-item {
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &__button {
+    background: transparent;
+    border: 0;
+    color: #fff;
+    width: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  &--active {
+    background: $dark-blue;
+
+    .playlist-item__button {
+      color: $brand-primary;
+    }
+  }
 }

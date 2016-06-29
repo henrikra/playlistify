@@ -46,10 +46,15 @@ export class PlaylistItem extends Component {
 
   render() {
     const { playlistItem } = this.props;
+    let classes = 'playlist-item';
+
+    if (this.isCurrentVideo()) {
+      classes += ' playlist-item--active';
+    }
 
     return (
-      <li className={this.isCurrentVideo() ? 'playlist-item--active' : ''}>
-        <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
+      <li className={classes}>
+        <button className="playlist-item__button" onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
           {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
         </button>
         {playlistItem.snippet.title}
