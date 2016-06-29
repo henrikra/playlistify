@@ -3,6 +3,7 @@ $darkest-blue: #202334;
 $dark-blue: #353954;
 $blue: #434762;
 $light-blue: #53597B;
+$grey-text: #6A849B;
 
 body {
   background: $darkest-blue;
@@ -23,11 +24,11 @@ img {
 }
 
 .main-content {
-  lost-column: 3/4 flex;
+  lost-column: 8/12 flex;
 }
 
 .sidebar {
-  lost-column: 1/4 flex;
+  lost-column: 4/12 flex;
 }
 
 .search-results {
@@ -78,16 +79,38 @@ img {
 
 .playlist-item {
   padding: 5px 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  lost-utility: clearfix;
+
+  &__play-control {
+    lost-column: 1/8;
+  }
+
+  &__info {
+    lost-column: 6/8;
+
+  }
+
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__channel-title {
+    font-size: 12px;
+    color: $grey-text;
+  }
+
+  &__actions {
+    lost-column: 1/8;
+  }
 
   &__button {
     background: transparent;
     border: 0;
     color: #fff;
     width: 24px;
-    margin-right: 5px;
+    margin-top: 6px;
     cursor: pointer;
   }
 
