@@ -38,7 +38,7 @@ module.exports = {
       }
     ]
   },
-  postcss: [require('lost'), require('postcss-normalize')],
+  postcss: [require('precss'), require('lost'), require('postcss-normalize')],
   devServer: {
     host: '0.0.0.0',
     watchOptions: {
