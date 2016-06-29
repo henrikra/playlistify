@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import classNames from 'classnames';
 
 import Icon from './Icon';
 
@@ -46,11 +47,9 @@ export class PlaylistItem extends Component {
 
   render() {
     const { playlistItem } = this.props;
-    let classes = 'playlist-item';
-
-    if (this.isCurrentVideo()) {
-      classes += ' playlist-item--active';
-    }
+    const classes = classNames('playlist-item', {
+      'playlist-item--active': this.isCurrentVideo()
+    });
 
     return (
       <li className={classes}>
