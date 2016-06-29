@@ -53,14 +53,17 @@ export class VideoPlayer extends Component {
     };
 
     return (
-      <YouTube
-        videoId={this.props.playlist.currentVideoId}
-        opts={opts}
-        onReady={this.onReady}
-        onEnd={this.onEnd}
-        onPlay={this.onPlay}
-        onPause={this.onPause}
-      />
+      <div className="video-player">
+        <YouTube
+          className="video-player__iframe"
+          videoId={this.props.playlist.currentVideoId}
+          opts={opts}
+          onReady={this.onReady}
+          onEnd={this.onEnd}
+          onPlay={this.onPlay}
+          onPause={this.onPause}
+        />
+      </div>
     );
   }
 }
