@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchSearchResults } from '../actions';
+import Icon from './Icon';
 
 export class SearchBar extends Component {
   constructor(props) {
@@ -25,12 +26,14 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <form className="search-bar" onSubmit={this.onFormSubmit}>
         <input
+          className="search-bar__field"
           type="text"
           value={this.state.searchTerm}
-          onChange={this.onInputChange} />
-        <input type="submit" value="Search" />
+          onChange={this.onInputChange}
+          placeholder="Search for songs..." />
+        <Icon icon="fa-search" className="search-bar__icon" />
       </form>
     );
   }

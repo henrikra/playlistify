@@ -1,7 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const Icon = ({ icon }) => {
-  return <i className={`fa ${icon}`} aria-hidden="true" />
+const Icon = ({ icon, className }) => {
+  const classes = classNames('fa', {
+    [`${icon}`]: icon,
+    [`${className}`]: className
+  });
+  
+  return <i className={classes} aria-hidden="true" />
 };
 
 export default Icon;

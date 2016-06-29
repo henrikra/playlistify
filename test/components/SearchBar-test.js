@@ -8,10 +8,6 @@ describe('SearchBar', () => {
   const minimumProps = {fetchSearchResults: () => {}};
   const wrapper = shallow(<SearchBar {...minimumProps} />);
 
-  it('contains submit button', () => {
-    expect(wrapper.find('[type="submit"]')).to.exist;
-  });
-
   it('resets searchTerm value on form submit', () => {
     wrapper.find('[type="text"]').simulate(
       'change',
