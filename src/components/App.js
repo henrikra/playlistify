@@ -5,6 +5,7 @@ import SearchResults from './SearchResults';
 import Playlist from './Playlist';
 import VideoPlayer from './VideoPlayer';
 
+require('font-awesome/css/font-awesome.min.css');
 require('../../style/style.css');
 
 export default class App extends Component {
