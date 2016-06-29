@@ -11,7 +11,8 @@ describe('PlaylistItem', () => {
       id: {videoId: 'firstVideoId'},
       snippet: {title: 'Video title 1'}
     },
-    videoPlayer: {}
+    videoPlayer: {},
+    playlist: {}
   };
 
   it('contains video title', () => {
@@ -37,5 +38,14 @@ describe('PlaylistItem', () => {
     const wrapper = shallow(<PlaylistItem {...props} />);
 
     expect(wrapper).to.contain(<Icon icon="fa-pause" />);
+  });
+
+  it('has active class when PlaylistItem is current video', () => {
+    const props = Object.assign({}, minimumProps, {
+      playlist: {currentVideoId: 'firstVideoId'}
+    });
+    const wrapper = shallow(<PlaylistItem {...props} />);
+
+    expect(wrapper).to.have.className('playlist-item--active');
   });
 });

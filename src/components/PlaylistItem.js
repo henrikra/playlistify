@@ -39,10 +39,16 @@ export class PlaylistItem extends Component {
     return videoPlayer.isPlaying && playlist.currentVideoId === playlistItem.id.videoId;
   }
 
+  isCurrentVideo() {
+    const { playlistItem, playlist } = this.props;
+    return playlist.currentVideoId === playlistItem.id.videoId;
+  }
+
   render() {
     const { playlistItem } = this.props;
+
     return (
-      <li>
+      <li className={this.isCurrentVideo() ? 'playlist-item--active' : ''}>
         <button onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
           {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
         </button>
