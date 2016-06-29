@@ -54,11 +54,24 @@ export class PlaylistItem extends Component {
 
     return (
       <li className={classes}>
-        <button className="playlist-item__button" onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
-          {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
-        </button>
-        {playlistItem.snippet.title}
-        <button onClick={this.handleRemoveClick}>-</button>
+        <div className="playlist-item__play-control">
+          <button className="playlist-item__button" onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
+            {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
+          </button>
+        </div>
+        <div className="playlist-item__info">
+          <div className="playlist-item__title">
+            {playlistItem.snippet.title}
+          </div>
+          <div className="playlist-item__channel-title">
+            {playlistItem.snippet.channelTitle}
+          </div>
+        </div>
+        <div className="playlist-item__actions">
+          <button className="playlist-item__action-button" onClick={this.handleRemoveClick}>
+            <Icon icon="fa-minus" />
+          </button>
+        </div>
       </li>
     );
   }
