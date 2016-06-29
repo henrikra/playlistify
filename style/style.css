@@ -51,7 +51,7 @@ img {
     bottom: 0;
     opacity: 0;
     transition: .3s ease-in-out;
-    background: rgba(32, 35, 52, 0.8);
+    background: color($dark-blue a(80%));
   }
 
   &__content {
