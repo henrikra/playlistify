@@ -28,15 +28,17 @@ export class SearchResult extends Component {
   render() {
     const { searchResult } = this.props;
 
+    if (this.isInPlaylist()) {
+      return null;
+    }
+
     return (
       <li className="search-result">
         <div className="search-result__image">
           <div className="search-result__image-overlay">
-            {!this.isInPlaylist() && (
-              <button className="search-result__add-btn" onClick={this.handleClick}>
-                <Icon icon="fa-plus" />
-              </button>
-            )}
+            <button className="search-result__add-btn" onClick={this.handleClick}>
+              <Icon icon="fa-plus" />
+            </button>
           </div>
           <img src={searchResult.snippet.thumbnails.medium.url} />
         </div>

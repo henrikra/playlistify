@@ -19,12 +19,12 @@ describe('SearchResult', () => {
     expect(wrapper).to.contain.text('Video title 1');
   });
 
-  it('does not have add to playlist button when video is already in playlist', () => {
+  it('does not render if the video is already in playlist', () => {
     const props = Object.assign({}, minimumProps, {
       playlist: {videos: [{id: {videoId: 'id'}}]}
     });
     const wrapper = shallow(<SearchResult {...props} />);
 
-    expect(wrapper.find('button')).to.not.exist;
+    expect(wrapper).to.have.html(null);
   });
 });
