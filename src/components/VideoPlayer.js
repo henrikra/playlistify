@@ -44,13 +44,7 @@ export class VideoPlayer extends Component {
   }
 
   render() {
-    const opts = {
-      height: '390',
-      width: '640',
-      playerVars: {
-        autoplay: 1
-      }
-    };
+    const opts = {playerVars: {autoplay: 1}};
 
     return (
       <div className="video-player">
