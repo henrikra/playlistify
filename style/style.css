@@ -185,3 +185,29 @@ img {
     border: 1px solid $grey-text;
   }
 }
+
+.shrink-enter {
+  opacity: 0.01;
+  transform: translateY(50px);
+}
+
+.shrink-enter.shrink-enter-active {
+  opacity: 1;
+  transition: all .3s ease-in;
+  transform: translateY(0);
+}
+
+.shrink-leave {
+  opacity: 1;
+  max-height: 50px;
+  transform: translateX(0);
+}
+
+.shrink-leave.shrink-leave-active {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0.01;
+  transform: translateX(200px);
+  padding: 0px 10px;
+  transition: all .3s ease-in;
+}
