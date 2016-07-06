@@ -53,16 +53,12 @@ export default function playlist(state = initialState, action) {
   switch (action.type) {
     case types.ADD_TO_PLAYLIST:
       return handleAdd(state, action);
-      break;
     case types.REMOVE_FROM_PLAYLIST:
       return handleRemove(state, action);
-      break;
     case types.NEXT_VIDEO_FROM_PLAYLIST:
       return handlePlayNext(state);
-      break;
     case types.UPDATE_CURRENT_VIDEO_ID:
       return handleUpdateCurrentVideoId(state, action);
-      break;
     default:
       return state;
   }
