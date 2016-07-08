@@ -21,17 +21,16 @@ const handleAdd = (state, action) => {
 };
 
 const handlePlayNext = state => {
-  const videoIds = _.map(state.videos, 'id.videoId');
-  const currentVideoIndex = videoIds.indexOf(state.currentVideoId);
+  const currentVideoIndex = _.findIndex(state.videos, {id: {videoId: state.currentVideoId}});
 
-  let nextVideoId;
+  let nextVideo;
   if (currentVideoIndex === state.videos.length - 1) {
-    nextVideoId = videoIds[0];
+    nextVideo = _.head(state.videos);
   } else {
-    nextVideoId = videoIds[currentVideoIndex + 1];
+    nextVideo = _.nth(state.videos, currentVideoIndex + 1);
   }
 
-  return _.assign({}, state, {currentVideoId: nextVideoId});
+  return _.assign({}, state, {currentVideoId: nextVideo.id.videoId});
 };
 
 const handleUpdateCurrentVideoId = (state, action) => {
