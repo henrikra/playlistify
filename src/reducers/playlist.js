@@ -1,3 +1,5 @@
+import map from 'lodash/map';
+
 import types from '../constants/ActionTypes';
 
 const hasDifferentId = videoId => {
@@ -27,7 +29,7 @@ const handleAdd = (state, action) => {
 };
 
 const handlePlayNext = state => {
-  const videoIds = state.videos.map(video => video.id.videoId);
+  const videoIds = map(state.videos, 'id.videoId');
   const currentVideoIndex = videoIds.indexOf(state.currentVideoId);
 
   let nextVideoId;
