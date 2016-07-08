@@ -2,17 +2,13 @@ import _ from 'lodash';
 
 import types from '../constants/ActionTypes';
 
-const hasDifferentId = videoId => {
-  return video => video.id.videoId !== videoId;
-};
-
 const isInPlaylist = (videos, newVideo) => {
   return _.some(videos, newVideo);
 };
 
 const handleRemove = (state, action) => {
   return _.assign({}, state, {
-    videos: state.videos.filter(hasDifferentId(action.videoId))
+    videos: _.reject(state.videos, {id: {videoId: action.videoId}})
   });
 };
 
