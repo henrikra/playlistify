@@ -6,8 +6,8 @@ const hasDifferentId = videoId => {
   return video => video.id.videoId !== videoId;
 };
 
-const isInPlaylist = (videos, newVideoId) => {
-  return _.some(videos, {id: {videoId: newVideoId}});
+const isInPlaylist = (videos, newVideo) => {
+  return _.some(videos, newVideo);
 };
 
 const handleRemove = (state, action) => {
@@ -17,7 +17,7 @@ const handleRemove = (state, action) => {
 };
 
 const handleAdd = (state, action) => {
-  if (isInPlaylist(state.videos, action.video.id.videoId)) {
+  if (isInPlaylist(state.videos, action.video)) {
     return state;
   } else {
     return _.assign({}, state, {videos: [...state.videos, action.video]});;
