@@ -38,7 +38,7 @@ const handleUpdateCurrentVideoId = (state, action) => {
 };
 
 const initialState = {
-  currentVideo: {id: {}},
+  currentVideo: null,
   videos: []
 };
 

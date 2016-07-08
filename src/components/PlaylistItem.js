@@ -42,6 +42,9 @@ export class PlaylistItem extends Component {
 
   isCurrentVideo() {
     const { playlistItem, playlist } = this.props;
+    if (!playlist.currentVideo) {
+      return false;
+    }
     return playlist.currentVideo.id.videoId === playlistItem.id.videoId;
   }
 

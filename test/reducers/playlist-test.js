@@ -12,14 +12,14 @@ describe('Playlist reducer', () => {
     };
 
     it('returns the initial state', () => {
-      const expectedState = {currentVideo: {id: {}}, videos: []};
+      const expectedState = {currentVideo: null, videos: []};
 
       expect(reducer(undefined, {})).to.eql(expectedState);
     });
 
     it('adds video to empty playlist', () => {
       const expectedState = {
-        currentVideo: {id: {}},
+        currentVideo: null,
         videos: [{id: {videoId: 'superId1'}}]
       };
 
