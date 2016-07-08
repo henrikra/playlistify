@@ -41,6 +41,6 @@ export function nextVideoFromPlaylist() {
   return {type: types.NEXT_VIDEO_FROM_PLAYLIST};
 }
 
-export function updateCurrentVideoId(newVideo) {
+export function updateCurrentVideo(newVideo) {
   return {type: types.UPDATE_CURRENT_VIDEO, newVideo};
 }

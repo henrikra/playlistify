@@ -7,7 +7,7 @@ import Icon from './Icon';
 
 import {
   removeFromPlaylist,
-  updateCurrentVideoId,
+  updateCurrentVideo,
   playVideoPlayer,
   pauseVideoPlayer
 } from '../actions';
@@ -27,7 +27,7 @@ export class PlaylistItem extends Component {
   }
 
   handlePlayClick() {
-    this.props.updateCurrentVideoId(this.props.playlistItem);
+    this.props.updateCurrentVideo(this.props.playlistItem);
     this.props.playVideoPlayer();
   }
 
@@ -83,7 +83,7 @@ function mapStateToProps({ videoPlayer, playlist }) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     removeFromPlaylist,
-    updateCurrentVideoId,
+    updateCurrentVideo,
     playVideoPlayer,
     pauseVideoPlayer
   }, dispatch);

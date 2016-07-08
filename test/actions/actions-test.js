@@ -56,7 +56,7 @@ describe('Actions', () => {
     const newVideo = {id: {videoId: 'thisIsVideoId'}};
     const expectedAction = {type: types.UPDATE_CURRENT_VIDEO, newVideo};
 
-    expect(actions.updateCurrentVideoId(newVideo)).to.eql(expectedAction);
+    expect(actions.updateCurrentVideo(newVideo)).to.eql(expectedAction);
   });
 
   it('creates PLAY_VIDEO_PLAYER action', () => {
