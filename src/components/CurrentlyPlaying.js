@@ -3,19 +3,22 @@ import { connect } from 'react-redux';
 
 export class CurrentlyPlaying extends Component {
   render() {
-    const { playlist } = this.props;
+    const { playlist: { currentVideo } } = this.props;
 
-    if (!playlist.currentVideo) {
+    if (!currentVideo) {
       return null;
     }
 
     return (
       <div className="currently-playing">
-        <div className="currently-playing__title">
-          {playlist.currentVideo.snippet.title}
-        </div>
-        <div className="currently-playing__channel-title">
-          {playlist.currentVideo.snippet.channelTitle}
+        <img className="currently-playing__cover" src={currentVideo.snippet.thumbnails.medium.url} />
+        <div className="currently-playing__content">
+          <div className="currently-playing__title">
+            {currentVideo.snippet.title}
+          </div>
+          <div className="currently-playing__channel-title">
+            {currentVideo.snippet.channelTitle}
+          </div>
         </div>
       </div>
     );
