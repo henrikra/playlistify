@@ -52,11 +52,11 @@ describe('Actions', () => {
     expect(actions.nextVideoFromPlaylist()).to.eql(expectedAction);
   });
 
-  it('creates UPDATE_CURRENT_VIDEO_ID action', () => {
-    const newVideoId = 'thisIsVideoId';
-    const expectedAction = {type: types.UPDATE_CURRENT_VIDEO_ID, newVideoId};
+  it('creates UPDATE_CURRENT_VIDEO action', () => {
+    const newVideo = {id: {videoId: 'thisIsVideoId'}};
+    const expectedAction = {type: types.UPDATE_CURRENT_VIDEO, newVideo};
 
-    expect(actions.updateCurrentVideoId(newVideoId)).to.eql(expectedAction);
+    expect(actions.updateCurrentVideoId(newVideo)).to.eql(expectedAction);
   });
 
   it('creates PLAY_VIDEO_PLAYER action', () => {

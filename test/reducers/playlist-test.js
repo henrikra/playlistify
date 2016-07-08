@@ -12,14 +12,14 @@ describe('Playlist reducer', () => {
     };
 
     it('returns the initial state', () => {
-      const expectedState = {currentVideoId: null, videos: []};
+      const expectedState = {currentVideo: {id: {}}, videos: []};
 
       expect(reducer(undefined, {})).to.eql(expectedState);
     });
 
     it('adds video to empty playlist', () => {
       const expectedState = {
-        currentVideoId: null,
+        currentVideo: {id: {}},
         videos: [{id: {videoId: 'superId1'}}]
       };
 
@@ -77,14 +77,14 @@ describe('Playlist reducer', () => {
 
     it('sets next video in playlist to be currently playing', () => {
       const initialState = {
-        currentVideoId: 'thisIsNowPlaying',
+        currentVideo: {id: {videoId: 'thisIsNowPlaying'}},
         videos: [
           {id: {videoId: 'thisIsNowPlaying'}},
           {id: {videoId: 'playThisNext'}}
         ]
       };
       const expectedState = {
-        currentVideoId: 'playThisNext',
+        currentVideo: {id: {videoId: 'playThisNext'}},
         videos: [
           {id: {videoId: 'thisIsNowPlaying'}},
           {id: {videoId: 'playThisNext'}}
@@ -94,25 +94,25 @@ describe('Playlist reducer', () => {
       expect(reducer(initialState, action)).to.eql(expectedState);
     });
 
-    it('sets same video as currentVideoId when one video in playlist', () => {
+    it('sets same video as currentVideo when one video in playlist', () => {
       const initialState = {
-        currentVideoId: 'thisIsNowPlaying',
+        currentVideo: {id: {videoId: 'thisIsNowPlaying'}},
         videos: [{id: {videoId: 'thisIsNowPlaying'}}]
       };
 
       expect(reducer(initialState, action)).to.eql(initialState);
     });
 
-    it('sets first video as currentVideoId if last video in playlist is playing', () => {
+    it('sets first video as currentVideo if last video in playlist is playing', () => {
       const initialState = {
-        currentVideoId: 'thisIsNowPlaying',
+        currentVideo: {id: {videoId: 'thisIsNowPlaying'}},
         videos: [
           {id: {videoId: 'playThisNext'}},
           {id: {videoId: 'thisIsNowPlaying'}}
         ]
       };
       const expectedState = {
-        currentVideoId: 'playThisNext',
+        currentVideo: {id: {videoId: 'playThisNext'}},
         videos: [
           {id: {videoId: 'playThisNext'}},
           {id: {videoId: 'thisIsNowPlaying'}}
@@ -123,21 +123,21 @@ describe('Playlist reducer', () => {
     });
   });
 
-  describe('UPDATE_CURRENT_VIDEO_ID', () => {
+  describe('UPDATE_CURRENT_VIDEO', () => {
     const action = {
-      type: types.UPDATE_CURRENT_VIDEO_ID,
-      newVideoId: 'coolVideoId'
+      type: types.UPDATE_CURRENT_VIDEO,
+      newVideo: {id: {videoId: 'coolVideoId'}}
     };
 
-    it('updates initial currentVideoId value with new one', () => {
-      const expectedState = {currentVideoId: 'coolVideoId', videos: []};
+    it('updates initial currentVideo value with new one', () => {
+      const expectedState = {currentVideo: {id: {videoId: 'coolVideoId'}}, videos: []};
 
       expect(reducer(undefined, action)).to.eql(expectedState);
     });
 
-    it('updates currentVideoId with new one', () => {
-      const initialState = {currentVideoId: 'oldVideoId'};
-      const expectedState = {currentVideoId: 'coolVideoId'};
+    it('updates currentVideo with new one', () => {
+      const initialState = {currentVideo: {id: {videoId: 'oldVideoId'}}};
+      const expectedState = {currentVideo: {id: {videoId: 'coolVideoId'}}};
 
       expect(reducer(initialState, action)).to.eql(expectedState);
     });

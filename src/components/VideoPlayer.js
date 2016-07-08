@@ -50,7 +50,7 @@ export class VideoPlayer extends Component {
       <div className="video-player">
         <YouTube
           className="video-player__iframe"
-          videoId={this.props.playlist.currentVideoId}
+          videoId={this.props.playlist.currentVideo.id.videoId}
           opts={opts}
           onReady={this.onReady}
           onEnd={this.onEnd}

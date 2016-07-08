@@ -21,7 +21,7 @@ const handleAdd = (state, action) => {
 };
 
 const handlePlayNext = state => {
-  const currentVideoIndex = _.findIndex(state.videos, {id: {videoId: state.currentVideoId}});
+  const currentVideoIndex = _.findIndex(state.videos, state.currentVideo);
 
   let nextVideo;
   if (currentVideoIndex === state.videos.length - 1) {
@@ -30,15 +30,15 @@ const handlePlayNext = state => {
     nextVideo = _.nth(state.videos, currentVideoIndex + 1);
   }
 
-  return _.assign({}, state, {currentVideoId: nextVideo.id.videoId});
+  return _.assign({}, state, {currentVideo: nextVideo});
 };
 
 const handleUpdateCurrentVideoId = (state, action) => {
-  return _.assign({}, state, {currentVideoId: action.newVideoId});
+  return _.assign({}, state, {currentVideo: action.newVideo});
 };
 
 const initialState = {
-  currentVideoId: null,
+  currentVideo: {id: {}},
   videos: []
 };
 
@@ -50,7 +50,7 @@ export default function playlist(state = initialState, action) {
       return handleRemove(state, action);
     case types.NEXT_VIDEO_FROM_PLAYLIST:
       return handlePlayNext(state);
-    case types.UPDATE_CURRENT_VIDEO_ID:
+    case types.UPDATE_CURRENT_VIDEO:
       return handleUpdateCurrentVideoId(state, action);
     default:
       return state;

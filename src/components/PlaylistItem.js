@@ -27,7 +27,7 @@ export class PlaylistItem extends Component {
   }
 
   handlePlayClick() {
-    this.props.updateCurrentVideoId(this.props.playlistItem.id.videoId);
+    this.props.updateCurrentVideoId(this.props.playlistItem);
     this.props.playVideoPlayer();
   }
 
@@ -37,12 +37,12 @@ export class PlaylistItem extends Component {
 
   isCurrentlyPlaying() {
     const { playlistItem, playlist, videoPlayer } = this.props;
-    return videoPlayer.isPlaying && playlist.currentVideoId === playlistItem.id.videoId;
+    return videoPlayer.isPlaying && playlist.currentVideo.id.videoId === playlistItem.id.videoId;
   }
 
   isCurrentVideo() {
     const { playlistItem, playlist } = this.props;
-    return playlist.currentVideoId === playlistItem.id.videoId;
+    return playlist.currentVideo.id.videoId === playlistItem.id.videoId;
   }
 
   render() {

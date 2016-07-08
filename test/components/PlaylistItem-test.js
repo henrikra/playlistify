@@ -12,7 +12,7 @@ describe('PlaylistItem', () => {
       snippet: {title: 'Video title 1'}
     },
     videoPlayer: {},
-    playlist: {}
+    playlist: {currentVideo: {id: {}}}
   };
 
   it('contains video title', () => {
@@ -23,7 +23,7 @@ describe('PlaylistItem', () => {
   it('shows play button when PlaylistItem is not currently playing', () => {
     const props = Object.assign({}, minimumProps, {
       videoPlayer: {isPlaying: false},
-      playlist: {currentVideoId: 'myId'}
+      playlist: {currentVideo: {id: {videoId: 'myId'}}}
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
@@ -33,7 +33,7 @@ describe('PlaylistItem', () => {
   it('shows pause button when PlaylistItem is currently playing', () => {
     const props = Object.assign({}, minimumProps, {
       videoPlayer: {isPlaying: true},
-      playlist: {currentVideoId: 'firstVideoId'}
+      playlist: {currentVideo: {id: {videoId: 'firstVideoId'}}}
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
@@ -42,7 +42,7 @@ describe('PlaylistItem', () => {
 
   it('has active class when PlaylistItem is current video', () => {
     const props = Object.assign({}, minimumProps, {
-      playlist: {currentVideoId: 'firstVideoId'}
+      playlist: {currentVideo: {id: {videoId: 'firstVideoId'}}}
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
