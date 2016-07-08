@@ -1,4 +1,4 @@
-import map from 'lodash/map';
+import _ from 'lodash';
 
 import types from '../constants/ActionTypes';
 
@@ -15,7 +15,7 @@ const isInPlaylist = (videos, newVideoId) => {
 };
 
 const handleRemove = (state, action) => {
-  return Object.assign({}, state, {
+  return _.assign({}, state, {
     videos: state.videos.filter(hasDifferentId(action.videoId))}
   );
 };
@@ -24,12 +24,12 @@ const handleAdd = (state, action) => {
   if (isInPlaylist(state.videos, action.video.id.videoId)) {
     return state;
   } else {
-    return Object.assign({}, state, {videos: [...state.videos, action.video]});
+    return _.assign({}, state, {videos: [...state.videos, action.video]});;
   }
 };
 
 const handlePlayNext = state => {
-  const videoIds = map(state.videos, 'id.videoId');
+  const videoIds = _.map(state.videos, 'id.videoId');
   const currentVideoIndex = videoIds.indexOf(state.currentVideoId);
 
   let nextVideoId;
@@ -39,11 +39,11 @@ const handlePlayNext = state => {
     nextVideoId = videoIds[currentVideoIndex + 1];
   }
 
-  return Object.assign({}, state, {currentVideoId: nextVideoId});
+  return _.assign({}, state, {currentVideoId: nextVideoId});
 };
 
 const handleUpdateCurrentVideoId = (state, action) => {
-  return Object.assign({}, state, {currentVideoId: action.newVideoId});
+  return _.assign({}, state, {currentVideoId: action.newVideoId});
 };
 
 const initialState = {
