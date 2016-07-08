@@ -12,8 +12,8 @@ const isInPlaylist = (videos, newVideoId) => {
 
 const handleRemove = (state, action) => {
   return _.assign({}, state, {
-    videos: state.videos.filter(hasDifferentId(action.videoId))}
-  );
+    videos: state.videos.filter(hasDifferentId(action.videoId))
+  });
 };
 
 const handleAdd = (state, action) => {
