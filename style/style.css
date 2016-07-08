@@ -211,3 +211,17 @@ img {
   padding: 0px 10px;
   transition: all .3s ease-in;
 }
+
+.currently-playing {
+  background: $dark-blue;
+  text-align: center;
+  padding: 15px 10px;
+
+  &__title {
+    color: $brand-primary
+  }
+
+  &__channel-title {
+    font-size: 12px;
+  }
+}

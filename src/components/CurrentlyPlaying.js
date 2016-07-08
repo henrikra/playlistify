@@ -10,9 +10,13 @@ export class CurrentlyPlaying extends Component {
     }
 
     return (
-      <div>
-        <div>{playlist.currentVideo.snippet.title}</div>
-        <div>{playlist.currentVideo.snippet.channelTitle}</div>
+      <div className="currently-playing">
+        <div className="currently-playing__title">
+          {playlist.currentVideo.snippet.title}
+        </div>
+        <div className="currently-playing__channel-title">
+          {playlist.currentVideo.snippet.channelTitle}
+        </div>
       </div>
     );
   }
