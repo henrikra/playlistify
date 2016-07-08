@@ -6,12 +6,8 @@ const hasDifferentId = videoId => {
   return video => video.id.videoId !== videoId;
 };
 
-const hasId = videoId => {
-  return video => video.id.videoId === videoId;
-};
-
 const isInPlaylist = (videos, newVideoId) => {
-  return videos.filter(hasId(newVideoId)).length;
+  return _.filter(videos, {id: {videoId: newVideoId}}).length;
 };
 
 const handleRemove = (state, action) => {
