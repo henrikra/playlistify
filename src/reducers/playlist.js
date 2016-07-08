@@ -7,7 +7,7 @@ const hasDifferentId = videoId => {
 };
 
 const isInPlaylist = (videos, newVideoId) => {
-  return _.filter(videos, {id: {videoId: newVideoId}}).length;
+  return _.some(videos, {id: {videoId: newVideoId}});
 };
 
 const handleRemove = (state, action) => {
