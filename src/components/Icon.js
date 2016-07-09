@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 const Icon = ({ icon, className }) => {
@@ -8,6 +8,11 @@ const Icon = ({ icon, className }) => {
   });
   
   return <i className={classes} aria-hidden="true" />
+};
+
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  className: PropTypes.string
 };
 
 export default Icon;
