@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const Icon = ({ icon, className }) => {
   const classes = classNames('fa', {
-    [`${icon}`]: icon,
+    [`fa-${icon}`]: icon,
     [`${className}`]: className
   });
   

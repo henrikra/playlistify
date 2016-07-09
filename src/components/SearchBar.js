@@ -33,7 +33,7 @@ export class SearchBar extends Component {
           value={this.state.searchTerm}
           onChange={this.onInputChange}
           placeholder="Search for songs..." />
-        <Icon icon="fa-search" className="search-bar__icon" />
+        <Icon icon="search" className="search-bar__icon" />
       </form>
     );
   }

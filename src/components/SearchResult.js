@@ -37,7 +37,7 @@ export class SearchResult extends Component {
         <div className="search-result__image">
           <div className="search-result__image-overlay">
             <button className="search-result__add-btn" onClick={this.handleClick}>
-              <Icon icon="fa-plus" />
+              <Icon icon="plus" />
             </button>
           </div>
           <img src={searchResult.snippet.thumbnails.medium.url} />

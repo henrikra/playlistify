@@ -27,7 +27,7 @@ describe('PlaylistItem', () => {
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
-    expect(wrapper).to.contain(<Icon icon="fa-play" />);
+    expect(wrapper).to.contain(<Icon icon="play" />);
   });
 
   it('shows pause button when PlaylistItem is currently playing', () => {
@@ -37,7 +37,7 @@ describe('PlaylistItem', () => {
     });
     const wrapper = shallow(<PlaylistItem {...props} />);
 
-    expect(wrapper).to.contain(<Icon icon="fa-pause" />);
+    expect(wrapper).to.contain(<Icon icon="pause" />);
   });
 
   it('has active class when PlaylistItem is current video', () => {

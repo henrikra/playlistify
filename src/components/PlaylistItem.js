@@ -58,7 +58,7 @@ export class PlaylistItem extends Component {
       <li className={classes}>
         <div className="playlist-item__play-control">
           <button className="playlist-item__button" onClick={this.isCurrentlyPlaying() ? this.handlePauseClick : this.handlePlayClick}>
-            {this.isCurrentlyPlaying() ? <Icon icon="fa-pause" /> : <Icon icon="fa-play" />}
+            {this.isCurrentlyPlaying() ? <Icon icon="pause" /> : <Icon icon="play" />}
           </button>
         </div>
         <div className="playlist-item__info">
@@ -71,7 +71,7 @@ export class PlaylistItem extends Component {
         </div>
         <div className="playlist-item__actions">
           <button className="playlist-item__action-button" onClick={this.handleRemoveClick}>
-            <Icon icon="fa-minus" />
+            <Icon icon="minus" />
           </button>
         </div>
       </li>
