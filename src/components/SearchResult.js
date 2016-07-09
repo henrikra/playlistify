@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -49,6 +49,12 @@ export class SearchResult extends Component {
     );
   }
 }
+
+SearchResult.propTypes = {
+  playlist: PropTypes.object,
+  addToPlaylist: PropTypes.func.isRequired,
+  searchResult: PropTypes.object.isRequired
+};
 
 function mapStateToProps({ playlist }) {
   return {playlist};

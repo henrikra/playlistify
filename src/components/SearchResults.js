@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import SearchResult from './SearchResult';
@@ -18,6 +18,10 @@ export class SearchResults extends Component {
     );
   }
 }
+
+SearchResults.propTypes = {
+  searchResult: PropTypes.array.isRequired
+};
 
 function mapStateToProps({ searchResults }) {
   return {searchResults};
