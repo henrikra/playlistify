@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import classNames from 'classnames';
@@ -78,6 +78,15 @@ export class PlaylistItem extends Component {
     );
   }
 }
+
+PlaylistItem.propTypes = {
+  videoPlayer: PropTypes.object,
+  playlist: PropTypes.object,
+  removeFromPlaylist: PropTypes.func,
+  updateCurrentVideo: PropTypes.func,
+  playVideoPlayer: PropTypes.func,
+  pauseVideoPlayer: PropTypes.func,
+};
 
 function mapStateToProps({ videoPlayer, playlist }) {
   return {videoPlayer, playlist};

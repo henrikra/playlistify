@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -22,6 +22,10 @@ export class Playlist extends Component {
     );
   }
 }
+
+Playlist.propTypes = {
+  playlist: PropTypes.object.isRequired
+};
 
 function mapStateToProps({ playlist }) {
   return {playlist};

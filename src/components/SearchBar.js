@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -38,6 +38,10 @@ export class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  fetchSearchResults: PropTypes.func.isRequired
+};
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchSearchResults }, dispatch);

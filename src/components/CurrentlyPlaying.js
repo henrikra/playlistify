@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 export class CurrentlyPlaying extends Component {
@@ -24,6 +24,10 @@ export class CurrentlyPlaying extends Component {
     );
   }
 }
+
+CurrentlyPlaying.propTypes = {
+  playlist: PropTypes.object
+};
 
 function mapStateToProps({ playlist }) {
   return {playlist};
