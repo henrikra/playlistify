@@ -2,10 +2,6 @@ import _ from 'lodash';
 
 import types from '../constants/ActionTypes';
 
-const isInPlaylist = (videos, newVideo) => {
-  return _.some(videos, newVideo);
-};
-
 const handleRemove = (state, action) => {
   return _.assign({}, state, {
     videos: _.reject(state.videos, {id: {videoId: action.videoId}})
@@ -13,7 +9,7 @@ const handleRemove = (state, action) => {
 };
 
 const handleAdd = (state, action) => {
-  if (isInPlaylist(state.videos, action.video)) {
+  if (_.find(state.videos, action.video)) {
     return state;
   } else {
     return _.assign({}, state, {videos: [...state.videos, action.video]});;
