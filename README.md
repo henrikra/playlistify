@@ -5,11 +5,11 @@ Make Youtube playlists from the fly
 ### How to setup environment
 
 ```
-> git clone git@github.com:StephenGrider/ReduxSimpleStarter.git
+> git clone git@github.com:henrikra/playlistify.git
 > vagrant up
 > vagrant ssh
 > cd /vagrant
-> npm install
+> npm i
 > npm start
 ```
 
